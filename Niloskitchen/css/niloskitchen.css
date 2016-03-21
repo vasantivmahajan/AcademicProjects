@@ -1,0 +1,936 @@
+
+    
+      body
+      {
+          font-family: 'Calibri;
+          
+      }
+    .submenubar
+      {
+          border:1px solid blue;
+          
+      }
+      
+     
+    .navigationbar>li>a
+        {
+            font-size: 15px;   
+        }
+        
+    .navbar-right
+        {
+            font-weight: bold;
+            color:dimgrey;
+        }
+      #myNavbar ul:nth-child(3) li
+        {
+            
+            border:1px solid grey;
+        
+        }
+        
+        .icon-bar
+        {
+            border:1px solid grey;
+        }
+        
+        .menubar li:hover
+        {
+            background-color: black;
+              
+        }
+        
+        .menubar, .submenubar
+        {
+            height:52px;
+            
+        }
+        
+        .fa-coffee,.fa-shopping-bag
+        {
+            color:orange;
+        }
+
+        #myNavbar ul li a
+        {
+            color:dimgrey;
+            
+        }
+        .menu
+        {
+            color: dimgrey;
+            font-weight: bold;
+            
+            margin-left: 2%;
+        }
+        
+        .niloskitchenlogo
+        {
+            /*border: 1px solid green;*/
+            z-index: 999;
+            height:150px;
+            width:100px;
+            
+        }
+        .meals
+        {
+            margin-left: 10%;
+           
+            
+        }
+        
+      
+        #myCarousel
+        {
+            z-index: 50;
+            width:100%;
+           
+        }
+        
+        
+        .item img
+        {
+            width:100%;
+        }
+        
+      .carousel-caption
+        {
+            
+            background-color: beige;
+            opacity: 0.7;
+            color: black;
+            width:65%;
+            height:25%;
+            font-size: 
+           
+        }
+        
+        .breakfastmenu, .lunchmenu, .dinnermenu
+        {
+          
+            border: 1px solid #E0E0E0;
+            background-color: #EEEEEE;
+           
+           
+        }
+        
+        .breakfastmenu h3
+        {
+            margin-left: 35%;
+            font-weight: bold;
+            
+        }
+        
+        .lunchmenu h3, .dinnermenu h3
+        {
+            margin-left: 40%;
+            font-weight: bold;
+        }
+        .breakfastmenu h4
+        {
+         margin-left: 30%; 
+            font-weight: bold;
+        }
+        
+        .lunchmenu h4
+        {
+            margin-left: 32%;
+            font-weight: bold;
+        }
+        
+        .dinnermenu h4
+        {
+            margin-left: 33%;
+            font-weight: bold;
+        }
+        
+        .fa-caret-down
+        {
+            margin-left: 14%;
+            margin-top: -10%;
+            visibility: hidden;
+        }
+        
+        .lunchcaret,.dinnercaret
+        {
+            margin-left: 33%;
+        }
+
+        .fa-caret-left
+        {
+            color: white;
+        }
+        
+        .menufororder .row .col-lg-3 img
+        {
+            width:100%;
+         
+        }
+        
+          
+        .menufororder .row .col-lg-3
+        {
+            padding-right: 0;
+            padding-left: 0;
+        }
+        .menufororder .row:nth-child(odd) .col-lg-3:nth-child(even)
+
+        {
+            background-color: #FFE0B2;
+        }
+        
+        .menufororder .row:nth-child(even) .col-lg-3:nth-child(odd)
+
+        {
+            background-color: #FFE0B2;
+        }
+        
+        #vegmark
+        {
+            width:30px; 
+            margin-left: 40%;
+            margin-top: 5%;
+           
+        }
+        
+       
+        .menufororder .col-lg-3 .col-lg-12 .col-lg-9 p, .rate .col-lg-6 p
+        {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .rate p
+        {
+            margin-left: 7%;
+        
+        }
+        
+        #chefslogo1
+        {
+            width:57px;
+            margin-left: 2%;
+            color:orange;
+           
+        }
+        
+       
+        
+        #cart button
+        {
+            margin-top: 6.5%;
+        }
+        
+        #cart span i
+        {
+            padding-top: 12%;
+            margin-left: 10%;
+            color:#FF9800;
+            
+        }
+        
+        .fa-heart
+        {
+           
+            margin-top: 20%;
+            margin-left: 2%;
+          
+        }
+        
+        .quantity
+        {
+            width:42px;
+           
+            margin-top: -1%;
+            
+            
+        }
+        .fa-plus-circle, .fa-minus-circle
+        {
+            margin-right: 2%;
+            margin-left: 2%;
+        }
+        
+        .rate .col-lg-6
+        {
+        padding: 0;
+        }
+        
+        #cartmodalheader h4
+        {
+            margin-left: 33%;
+            margin-top: -8%;
+            font-size: 25px;
+            text-decoration: underline;
+        }
+        
+        .fa-times-circle
+        {
+            color:#E65100;
+        }
+        
+        .fa-shopping-cart
+        {
+            color:#FFA726;
+        }
+        
+        #cartmodalbody .ordertotal
+        {
+            width:12%;
+            margin-right: 0;
+        }
+        
+        #cartmodalbody span
+        {
+            font-weight: bold;
+            
+        }
+        
+        #orderTotal
+        {
+            margin-left: 70%;
+        }
+        
+        #cartmodalbody h4
+        {
+            font-weight: bold;
+        }
+        
+        
+        .thumbnail
+        {
+            width:100%;
+            border: none;
+            border-radius: 5px;
+            margin-bottom:0px;
+            
+           
+        }
+        
+        tr th:first-child
+        {
+            width:20%;
+            
+        }
+        
+        tr th:nth-child(3)
+        {
+            width:15%;
+        }
+        
+        tr th:nth-child(5)
+        {
+            width:18%;
+        }
+       
+        .moreinformation
+        {
+            
+            z-index=999;
+            margin-top: -40%;
+            color: grey;
+            display: none;
+            margin-left: 42%;
+        }
+        
+        #creditordebitpayment, #cashondelivery
+        {
+            margin-left:0%;
+            font-weight: bold;
+           
+        }
+        
+        .paymentdiv span
+        {
+            margin-left: 10%;
+        }
+        
+       
+        .termsandcondition p
+        {
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 1%;
+           
+        }
+        
+        .termsandcondition
+        {
+             border: 1px solid #BDBDBD;
+            border-radius: 3px;
+            background-color: #EEEEEE;
+            z-index: 1100;
+            display: none;
+        }
+        
+        .termsandcondition input
+        {
+            border: 1px solid grey;
+            margin-top: 0%;
+        }
+        
+       .placeorderbtn
+        {
+           display:none;
+            margin-left:41%;
+            margin-top: 3%;
+        }
+        
+        
+         .cardnumber,.cardholdersname
+        {
+            width:250%;
+           
+        }
+        
+        .cvv
+        {
+            width:100%;
+        }
+        
+        .cardnumber,.cardholdersname,.cvv,.expirationdate
+        {
+            /*margin-left: 25%;*/
+            padding-bottom: 1%;
+            width:100%;
+           /* border: 1px solid green;*/
+        }
+       
+        .cardnumber input
+        {
+            margin-left: 7%;
+           
+        }
+        
+        #cvv
+        {
+            margin-left: 17.2%;
+            width:15%;
+            
+        }
+  
+        
+        #carddetails
+        {
+            width:100%;
+            border: 1px solid #BDBDBD;
+            border-radius: 3px;
+            background-color: #EEEEEE;
+            z-index: 1100;
+            display: none;
+        }
+       
+        .addressline1 input,  .zipcode input,  .city input,  .state input, .email input, .phonenumber input
+        {
+            width:250%;
+   
+        }
+        
+         .addressline1 input
+        {
+            margin-left: 15.5%;
+        }
+        
+        .zipcode input
+        {
+            margin-left: 15.7%;
+        }
+        
+        .city input
+        {
+            margin-left: 21.2%;
+        }
+        
+        .state input
+        {
+            margin-left: 19.5%;
+        }
+        
+         .email input
+        {
+             margin-left: 19%;
+        }
+        
+         .phonenumber input
+        {
+             margin-left: 7.5%;
+        }
+        
+        .addressline1,  .zipcode,  .city,  .state, .email, .phonenumber
+        {
+            width:100%;
+            padding-bottom: 1%;   
+           
+        }
+       
+        #personaldetails
+        {
+            width:100%;   
+            
+        }
+        
+        #personaldetails input
+        {
+            width:75%
+                border:1px solid green;
+        }
+        
+        input#submitbtn
+        {
+            
+            margin-left: 55%;
+            margin-top: 3%;
+           
+        }
+        
+        .resetBtn
+        {
+            margin-top: -11%;
+            margin-left: 40%;
+        }
+        
+        .cityFromJSP, .stateFromJSP
+        {
+            display: none;
+        }
+        
+        #zipcodelist li
+        {
+            list-style-type: none;
+            
+        }
+        
+        #zipcodelist
+        {
+            font-weight: bold;
+            width:35%;
+            margin-left: 27%;
+            background-color:#EEEEEE;
+            border-radius: 3px;
+        }
+        
+        
+        
+        #expirationdate
+        {
+            margin-left: 4%;
+        }
+        
+        .addressdiv
+        {
+            display:none;
+             background-color:#EEEEEE;
+            border-radius: 5px;
+            padding: 5%
+                
+        }
+    
+        
+        #checkout
+        {
+            display: none;
+            margin-left: 38%;
+            width:25%;
+            margin-bottom: 3%;
+            
+        }
+        
+        
+        .confirmation
+        {
+          display: none;   
+        }
+        
+        .errorMessageList
+        {
+            colour:red;
+        }
+        
+        .hidediv
+        {
+            display:none;
+        }
+        
+        .placeorderbycod
+        {
+            display: none;
+            margin-left: 45%;
+        }
+        
+        .imagesection, .contentsection
+        {
+            height:200px;
+           
+        }
+       
+        .itemimage
+        {
+            height:200px;
+        }
+    
+         .carousel-caption h3
+        {
+            margin-top: -2%;
+            color:black;
+        }
+        
+     
+      
+        
+        @media screen and (min-width:768px) and (max-width: 990px)
+        {
+            
+            .menufororder
+            {
+                width:75%;
+               
+                margin-left: 12.5%
+                    
+            }
+            
+            .breakfastrows, .lunchrows, .dinnerrows
+            {
+                margin-bottom: 3%;
+                border:2px solid grey;
+                border-radius: 3px;
+              
+               
+            }
+            
+            .breakfastrows .section1, .lunchrows .section1, .dinnerrows .section1
+            {
+               height:200px;
+                margin-bottom: 2%;
+               
+            }
+            
+            .breakfastrows .section1 .imagesection .itemimage
+            {
+                border: 1px solid grey;
+            }
+            
+            
+            #vegmark
+            {
+                margin-right: 0px;
+              
+            }
+            
+            .contentsection .col-sm-12 .col-sm-9 p
+            {
+                line-height: 1.8em;
+                font-weight: bolder;
+               
+            }
+            
+            .addToCart
+            {
+                padding: -25%;
+               
+            }
+            
+        
+            
+            .addToCart+span 
+            {
+               
+               display: block;
+               margin-top: -5%;
+            }
+            
+             .carousel-caption h3
+                {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            
+            .breakfastmenu h3, .lunchmenu h3, .dinnermenu h3
+            {
+                margin-top: 2%;
+                 font-size: 18px;
+                font-weight: bold;
+                
+            }
+            
+            .breakfastmenu h4, .lunchmenu h4, .dinnermenu h4
+            {
+                
+                 font-size: 15px;
+                font-weight: bold;
+                
+            }
+            .breakfastmenu,.lunchmenu,.dinnermenu
+            {
+               height:58px;
+               
+            }
+            
+        }
+        
+        @media screen and (max-width: 767px)
+        {
+            .breakfastmenu h3, .lunchmenu h3, .dinnermenu h3
+            {
+                margin-top: 2%;
+                 font-size: 18px;
+                font-weight: bold;
+                
+            }
+            
+            .breakfastmenu h4, .lunchmenu h4, .dinnermenu h4
+            {
+                
+                 font-size: 15px;
+                font-weight: bold;
+                
+            }
+            .breakfastmenu,.lunchmenu,.dinnermenu
+            {
+               height:58px;
+               
+            }
+            
+            .menufororder
+            {
+                width:60%;
+               
+                margin-left: 20%
+                    
+            }
+            
+            
+            .menufororder .breakfastrows:nth-of-type(1) .section1 .contentsection
+            {
+                margin-bottom: 5%;
+            }
+            
+            .menufororder .breakfastrows:nth-of-type(1) .section2 .contentsection
+            {
+                 margin-bottom: 5%;
+            }
+            
+             .menufororder .breakfastrows:nth-of-type(2) .section1 .imagesection
+            {
+                margin-bottom: 5%;
+            }
+            
+            .menufororder .breakfastrows:nth-of-type(2) .section2 .imagesection
+            {
+                 margin-bottom: 5%;
+            }
+            
+            
+            .menufororder .lunchrows .section1 .contentsection
+            {
+                margin-bottom: 5%;
+               
+            
+            }
+            
+            .menufororder .lunchrows .section2 .contentsection
+            {
+                 margin-bottom: 5%;
+                
+              
+            
+            }
+            
+            .menufororder .lunchrow2 .section1 .contentsection
+            {
+                margin-bottom: -5%;
+               
+            }
+             .menufororder .lunchrow2 .section1 .imagesection
+            {
+                margin-bottom: 5%;
+               
+            }
+            
+            .menufororder .lunchrow2 .section2 .imagesection
+            {
+                 margin-top: -5%;
+            }
+            
+            .menufororder .lunchrow2 .section2 .imagesection
+            {
+                 margin-top: -5%;
+            }
+            
+            .menufororder .dinnerrows .section1 .contentsection
+            {
+                margin-bottom: 5%;
+                margin-top: -5%
+               
+            }
+            
+            .menufororder .dinnerrows .section1 .imagesection
+            {
+                margin-top: 5%;
+                margin-bottom: -5%;
+               
+            }
+            
+            .menufororder .dinnerrows .section2 .imagesection
+            {
+                 margin-bottom: -5%;
+            }
+            
+            .menufororder .dinnerrows .section2 .contentsection
+            {
+                margin-top: -5%;
+                 margin-bottom: 10%;
+            }
+            
+             .menufororder .dinnerrows2 .section1 .imagesection
+            {
+                margin-top: -5%;
+            }
+            
+            .menufororder .dinnerrows2 .section2 .contentsection
+            {
+                 margin-top: 10%;
+               
+            }
+            
+             .menufororder .dinnerrows2 .section2 .imagesection
+            {
+                 margin-top: -10%;
+               
+            }
+            
+            .niloskitchenlogo
+            {
+                display: none;
+            }
+            
+            .carousel-caption p
+            {
+                color:black;
+                display: none;
+               
+            }
+            
+            .carouseldiv
+            {
+               z-index: 10;
+              
+            }
+            
+            .menu
+            {
+                z-index:999;
+            }
+            
+            .addToCart+span 
+            {
+               
+               display: block;
+               margin-top: -5%;
+            }
+            
+               .addressline1 input, .zipcode input, .city input, .state input, .email input, .phonenumber input
+                {
+                    width:40%;
+                    margin-top: -5%;
+                    padding-left: 15%;
+                   
+                }
+            
+             .city, .state, .email, .phonenumber
+            {
+                margin-top: -5%;
+                
+            }
+            
+            .addresslineerror
+            {
+                
+                width:30%;
+            }
+            
+            
+            
+            .addressline1 input, .zipcode input
+            {
+                margin-left: 18%;
+            }
+            .city input
+            {
+                margin-left: 17.5%;
+            }
+            
+            .state input, .email input
+            {
+                margin-left: 17.5%
+            }
+            
+            .phonenumber input
+            {
+                margin-left: 17.5%
+            }
+            
+             .paymentdiv
+                {
+              width:100%;
+            }
+            
+            .cardnumber input
+            {
+                width:50%;
+                margin-left: 22%;
+                margin-top: -4%;
+            }
+            
+            .cardholdersname input
+            {
+                width:50%;
+                 margin-left: 22%;
+                margin-top: -4%;
+                
+            }
+            
+            #cvv
+            {
+                 width:20%;
+                 margin-right: -10%;
+             
+                margin-top: -4%;
+            }
+            
+            #expirationdate
+            {
+                
+                 width:30%;
+                margin-right: -10%;
+                margin-top: -4%;
+            }
+            
+            
+        
+        }
+        
+        .addressdiv
+        {
+            width:100%;
+        }
+       
+        footer
+        {
+            margin-top: 3%;
+            background-color: black;
+        }
+        
+        footer h3
+        {
+            text-align: center;
+            color: #FFCC80;
+            font-size: 20px;
+        }
+        
+        footer h4
+        {
+            text-align: center;
+            color: #FFCC80;
+            font-size: 16px;
+        }
+    

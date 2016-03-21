@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Nilo's Kitchen </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- <link href="css/niloskitchen.css" rel="stylesheet" type="text/css">-->
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+ 
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  
+    <style>
+    
+    
+      body
+      {
+          font-family: 'Calibri;
+          
+      }
+    .submenubar
+      {
+          border:1px solid blue;
+          
+      }
+      
+     
+    .navigationbar>li>a
+        {
+            font-size: 15px;   
+        }
+        
+    .navbar-right
+        {
+            font-weight: bold;
+            color:dimgrey;
+        }
+      #myNavbar ul:nth-child(3) li
+        {
+            
+            border:1px solid grey;
+        
+        }
+        
+        .icon-bar
+        {
+            border:1px solid grey;
+        }
+        
+        .menubar li:hover
+        {
+            background-color: black;
+              
+        }
+        
+        .menubar, .submenubar
+        {
+            height:52px;
+            
+        }
+        
+        .fa-coffee,.fa-shopping-bag
+        {
+            color:orange;
+        }
+
+        #myNavbar ul li a
+        {
+            color:dimgrey;
+            
+        }
+        .menu
+        {
+            color: dimgrey;
+            font-weight: bold;
+            
+            margin-left: 2%;
+        }
+        
+        .niloskitchenlogo
+        {
+           
+            padding-right: 0;
+            z-index: 999;
+            height:100px;
+            width:90px;
+            
+        }
+        .meals
+        {
+            margin-left: 10%;
+           
+            
+        }
+        
+      
+        #myCarousel
+        {
+            z-index: 50;
+            width:100%;
+        }
+        
+        
+        .item img
+        {
+            width:100%;
+        }
+        
+      .carousel-caption
+        {
+            
+            background-color: beige;
+            opacity: 0.7;
+            color: black;
+            width:65%;
+            height:25%;
+            font-size: 
+           
+        }
+        
+        .breakfastmenu, .lunchmenu, .dinnermenu
+        {
+          
+            border: 1px solid #E0E0E0;
+            background-color: #EEEEEE;
+            margin-top: 1%;
+            padding-top: -2%;
+            height:75px;
+           
+        }
+        
+        .breakfastmenu h3
+        {
+            margin-left: 35%;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 2.5%;
+            
+        }
+        
+        .lunchmenu h3, .dinnermenu h3
+        {
+            margin-left: 40%;
+            font-weight: bold;
+            font-size: 18px;
+             margin-top: 2.5%;
+        }
+        
+        
+        .breakfastmenu h4
+        {
+         margin-left: 30%; 
+        font-weight: bold;
+          font-size: 16px;  
+        }
+        
+        .lunchmenu h4
+        {
+            margin-left: 32%;
+            font-weight: bold;
+            font-size: 16px; 
+        }
+        
+        .dinnermenu h4
+        {
+            margin-left: 33%;
+            font-weight: bold;
+            font-size: 16px; 
+        }
+        
+        .fa-caret-down
+        {
+            margin-left: 14%;
+            margin-top: -10%;
+            visibility: hidden;
+        }
+        
+        .lunchcaret,.dinnercaret
+        {
+            margin-left: 33%;
+        }
+
+        .fa-caret-left
+        {
+            color: white;
+        }
+        
+        .menufororder .row .col-lg-3 img
+        {
+            width:100%;
+         
+        }
+        
+          
+        .menufororder .row .col-lg-3
+        {
+            padding-right: 0;
+            padding-left: 0;
+        }
+        .menufororder .row:nth-child(odd) .col-lg-3:nth-child(even)
+
+        {
+            background-color: #FFE0B2;
+        }
+        
+        .menufororder .row:nth-child(even) .col-lg-3:nth-child(odd)
+
+        {
+            background-color: #FFE0B2;
+        }
+        
+        #vegmark
+        {
+            width:30px; 
+            margin-left: 40%;
+            margin-top: 5%;
+           
+        }
+        
+       
+        .menufororder .col-lg-3 .col-lg-12 .col-lg-9 p, .rate .col-lg-6 p
+        {
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .rate p
+        {
+            margin-left: 7%;
+        
+        }
+        
+        #chefslogo1
+        {
+            width:57px;
+            margin-left: 2%;
+            color:orange;
+           
+        }
+        
+       
+        
+        #cart button
+        {
+            margin-top: 6.5%;
+        }
+        
+        #cart span i
+        {
+            padding-top: 12%;
+            margin-left: 10%;
+            color:#FF9800;
+            
+        }
+        
+        .fa-heart
+        {
+           
+            margin-top: 20%;
+            margin-left: 2%;
+          
+        }
+        
+        .quantity
+        {
+            width:42px;
+           
+            margin-top: -1%;
+            
+            
+        }
+        .fa-plus-circle, .fa-minus-circle
+        {
+            margin-right: 2%;
+            margin-left: 2%;
+        }
+        
+        .rate .col-lg-6
+        {
+        padding: 0;
+        }
+        
+        #cartmodalheader h4
+        {
+            margin-left: 33%;
+            margin-top: -8%;
+            font-size: 25px;
+            text-decoration: underline;
+        }
+        
+        .fa-times-circle
+        {
+            color:#E65100;
+        }
+        
+        .fa-shopping-cart
+        {
+            color:#FFA726;
+        }
+        
+        #cartmodalbody .ordertotal
+        {
+            width:12%;
+            margin-right: 0;
+        }
+        
+        #cartmodalbody span
+        {
+            font-weight: bold;
+            
+        }
+        
+        #orderTotal
+        {
+            margin-left: 70%;
+        }
+        
+        #cartmodalbody h4
+        {
+            font-weight: bold;
+        }
+        
+        
+        .thumbnail
+        {
+            width:100%;
+            border: none;
+            border-radius: 5px;
+            margin-bottom:0px;
+            
+           
+        }
+        
+        tr th:first-child
+        {
+            width:20%;
+            
+        }
+        
+        tr th:nth-child(3)
+        {
+            width:15%;
+        }
+        
+        tr th:nth-child(5)
+        {
+            width:18%;
+        }
+       
+        .moreinformation
+        {
+            
+            z-index=999;
+            margin-top: -40%;
+            color: grey;
+           display:none;
+            margin-left: 42%;
+        }
+        
+        #creditordebitpayment, #cashondelivery
+        {
+            margin-left:0%;
+            font-weight: bold;
+           
+        }
+        
+        .paymentdiv span
+        {
+            margin-left: 10%;
+        }
+        
+       
+        .termsandcondition p
+        {
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 1%;
+           
+        }
+        
+        .termsandcondition
+        {
+             border: 1px solid #BDBDBD;
+            border-radius: 3px;
+            background-color: #EEEEEE;
+            z-index: 1100;
+            display: none;
+        }
+        
+        .termsandcondition input
+        {
+            border: 1px solid grey;
+            margin-top: 0%;
+        }
+        
+       .placeorderbtn
+        {
+           display:none;
+            margin-left:41%;
+            margin-top: 3%;
+        }
+        
+        
+         .cardnumber,.cardholdersname
+        {
+            width:250%;
+           
+        }
+        
+        .cvv
+        {
+            width:100%;
+        }
+        
+        .cardnumber,.cardholdersname,.cvv,.expirationdate
+        {
+            /*margin-left: 25%;*/
+            padding-bottom: 1%;
+            width:100%;
+           /* border: 1px solid green;*/
+        }
+       
+        .cardnumber input
+        {
+            margin-left: 7%;
+           
+        }
+        
+        .cardholdersname input
+        {
+             margin-left: 0.5%;
+        }
+        #cvv
+        {
+            margin-left: 17%;
+            width:15%;
+            
+        }
+  
+        .expirationdate input
+        {
+            margin-left: 4%;
+        }
+        
+        #carddetails
+        {
+            width:100%;
+            border: 1px solid #BDBDBD;
+            border-radius: 3px;
+            background-color: #EEEEEE;
+            z-index: 1100;
+            display: none;
+        }
+       
+        .addressline1 input,  .zipcode input,  .city input,  .state input, .email input, .phonenumber input
+        {
+            width:250%;
+   
+        }
+        
+         .addressline1 input
+        {
+            margin-left: 15%;
+        }
+        
+        .zipcode input
+        {
+            margin-left: 15.7%;
+        }
+        
+        .city input
+        {
+            margin-left: 21.2%;
+        }
+        
+        .state input
+        {
+            margin-left: 19.5%;
+        }
+        
+         .email input
+        {
+             margin-left: 19%;
+        }
+        
+         .phonenumber input
+        {
+             margin-left: 8%;
+        }
+        
+        .addressline1,  .zipcode,  .city,  .state, .email, .phonenumber
+        {
+            width:100%;
+            padding-bottom: 1%;   
+           
+        }
+       
+        #personaldetails
+        {
+            width:100%;   
+            
+        }
+        
+        #personaldetails input
+        {
+            width:40%;
+            
+        }
+        
+        input#submitbtn
+        {
+            
+            margin-left: 46%;
+            width:15%;
+            margin-top: 3%;
+           
+        }
+        
+        .resetBtn
+        {
+            margin-top: -11%;
+            margin-left: 30%;
+            width:15% !important;
+        }
+        
+        .cityFromJSP, .stateFromJSP
+        {
+            display: none;
+        }
+        
+        #zipcodelist li
+        {
+            list-style-type: none;
+            
+        }
+        
+        #zipcodelist
+        {
+            font-weight: bold;
+            width:35%;
+            margin-left: 27%;
+            background-color:#EEEEEE;
+            border-radius: 3px;
+        }
+        
+        
+        
+        #expirationdate
+        {
+            margin-left: 4%;
+        }
+        
+        .addressdiv
+        {
+            display:none;
+             background-color:#EEEEEE;
+            border-radius: 5px;
+            padding: 5%
+                
+        }
+    
+        
+        #checkout
+        {
+            display: none;
+            margin-left: 38%;
+            width:25%;
+            margin-bottom: 3%;
+            
+        }
+        
+        
+        .confirmation
+        {
+          display: none;   
+        }
+        
+        .errorMessageList
+        {
+            colour:red;
+        }
+        
+        .hidediv
+        {
+            display:none;
+        }
+        
+        .placeorderbycod
+        {
+            display: none;
+            margin-left: 45%;
+        }
+        
+        .imagesection, .contentsection
+        {
+            height:200px;
+           
+        }
+       
+        .itemimage
+        {
+            height:200px;
+        }
+    
+         .carousel-caption h3
+        {
+            margin-top: -2%;
+            color:black;
+        }
+        
+     
+      
+        
+        @media screen and (min-width:768px) and (max-width: 990px)
+        {
+            
+            .menufororder
+            {
+                width:75%;
+               
+                margin-left: 12.5%
+                    
+            }
+            
+            .breakfastrows, .lunchrows, .dinnerrows
+            {
+                margin-bottom: 3%;
+                border:2px solid grey;
+                border-radius: 3px;
+              
+               
+            }
+            
+            .breakfastrows .section1, .lunchrows .section1, .dinnerrows .section1
+            {
+               height:200px;
+                margin-bottom: 2%;
+               
+            }
+            
+            .breakfastrows .section1 .imagesection .itemimage
+            {
+                border: 1px solid grey;
+            }
+            
+            
+            #vegmark
+            {
+                margin-right: 0px;
+              
+            }
+            
+            .contentsection .col-sm-12 .col-sm-9 p
+            {
+                line-height: 1.8em;
+                font-weight: bolder;
+               
+            }
+            
+            .addToCart
+            {
+                padding: -25%;
+               
+            }
+            
+        
+            
+            .addToCart+span 
+            {
+               
+               display: block;
+               margin-top: -5%;
+            }
+            
+             .carousel-caption h3
+                {
+                    font-size: 18px;
+                    font-weight: bold;
+                }
+            
+            .breakfastmenu h3, .lunchmenu h3, .dinnermenu h3
+            {
+                margin-top: 2%;
+                 font-size: 18px;
+                font-weight: bold;
+                
+            }
+            
+            .breakfastmenu h4, .lunchmenu h4, .dinnermenu h4
+            {
+                
+                 font-size: 15px;
+                font-weight: bold;
+                
+            }
+            .breakfastmenu,.lunchmenu,.dinnermenu
+            {
+               height:58px;
+               
+            }
+            
+            #howwework h4
+            {
+                font-size: 24px;
+            }
+            
+            #howwework h5
+            {
+              font-size: 14px;   
+            }
+            
+            .breakfastmenu h3, .lunchmenu h3, .dinnermenu h3
+            {
+                font-size:16px;
+            }
+            
+            .breakfastmenu h4, .lunchmenu h4, .dinnermenu h4
+            {
+                 font-size:14px;
+            }
+            
+            
+    
+        }
+        
+        @media screen and (max-width: 767px)
+        {
+            .breakfastmenu h3, .lunchmenu h3, .dinnermenu h3
+            {
+                margin-top: 2%;
+                 font-size: 18px;
+                font-weight: bold;
+                
+            }
+            
+            .breakfastmenu h4, .lunchmenu h4, .dinnermenu h4
+            {
+                
+                 font-size: 15px;
+                font-weight: bold;
+                
+            }
+            .breakfastmenu,.lunchmenu,.dinnermenu
+            {
+               height:58px;
+               
+            }
+            
+            .menufororder
+            {
+                width:60%;
+               
+                margin-left: 20%
+                    
+            }
+            
+            
+            .menufororder .breakfastrows:nth-of-type(1) .section1 .contentsection
+            {
+                margin-bottom: 5%;
+            }
+            
+            .menufororder .breakfastrows:nth-of-type(1) .section2 .contentsection
+            {
+                 margin-bottom: 5%;
+            }
+            
+             .menufororder .breakfastrows:nth-of-type(2) .section1 .imagesection
+            {
+                margin-bottom: 5%;
+            }
+            
+            .menufororder .breakfastrows:nth-of-type(2) .section2 .imagesection
+            {
+                 margin-bottom: 5%;
+            }
+            
+            
+            .menufororder .lunchrows .section1 .contentsection
+            {
+                margin-bottom: 5%;
+               
+            
+            }
+            
+            .menufororder .lunchrows .section2 .contentsection
+            {
+                 margin-bottom: 5%;
+                
+              
+            
+            }
+            
+            .menufororder .lunchrow2 .section1 .contentsection
+            {
+                margin-bottom: -5%;
+               
+            }
+             .menufororder .lunchrow2 .section1 .imagesection
+            {
+                margin-bottom: 5%;
+               
+            }
+            
+            .menufororder .lunchrow2 .section2 .imagesection
+            {
+                 margin-top: -5%;
+            }
+            
+            .menufororder .lunchrow2 .section2 .imagesection
+            {
+                 margin-top: -5%;
+            }
+            
+            .menufororder .dinnerrows .section1 .contentsection
+            {
+                margin-bottom: 5%;
+                margin-top: -5%
+               
+            }
+            
+            .menufororder .dinnerrows .section1 .imagesection
+            {
+                margin-top: 5%;
+                margin-bottom: -5%;
+               
+            }
+            
+            .menufororder .dinnerrows .section2 .imagesection
+            {
+                 margin-bottom: -5%;
+            }
+            
+            .menufororder .dinnerrows .section2 .contentsection
+            {
+                margin-top: -5%;
+                 margin-bottom: 10%;
+            }
+            
+             .menufororder .dinnerrows2 .section1 .imagesection
+            {
+                margin-top: -5%;
+            }
+            
+            .menufororder .dinnerrows2 .section2 .contentsection
+            {
+                 margin-top: 10%;
+               
+            }
+            
+             .menufororder .dinnerrows2 .section2 .imagesection
+            {
+                 margin-top: -10%;
+               
+            }
+            
+            .niloskitchenlogo
+            {
+                display: none;
+                width:100px;
+                
+            }
+            
+            .carousel-caption p
+            {
+                color:black;
+                display: none;
+               
+            }
+            
+            .carouseldiv
+            {
+               z-index: 10;
+                padding-left: 0;
+              
+            }
+            
+            .menu
+            {
+                z-index:999;
+            }
+            
+            .addToCart+span 
+            {
+               
+               display: block;
+               margin-top: -5%;
+            }
+            
+               .addressline1 input, .zipcode input, .city input, .state input, .email input, .phonenumber input
+                {
+                    width:40%;
+                    margin-top: -5%;
+                    padding-left: 15%;
+                   
+                }
+            
+             .city, .state, .email, .phonenumber
+            {
+                margin-top: -5%;
+                
+            }
+            
+            .addresslineerror
+            {
+                
+                width:30%;
+            }
+            
+            
+            
+            .addressline1 input, .zipcode input
+            {
+                margin-left: 18%;
+            }
+            .city input
+            {
+                margin-left: 17.5%;
+            }
+            
+            .state input, .email input
+            {
+                margin-left: 17.5%
+            }
+            
+            .phonenumber input
+            {
+                margin-left: 17.5%
+            }
+            
+             .paymentdiv
+                {
+              width:100%;
+            }
+            
+            .cardnumber input
+            {
+                width:50%;
+                margin-left: 22%;
+                margin-top: -4%;
+            }
+            
+            .cardholdersname input
+            {
+                width:50%;
+                 margin-left: 22%;
+                margin-top: -4%;
+                
+            }
+            
+            #cvv
+            {
+                 width:20%;
+                 margin-right: -10%;
+             
+                margin-top: -4%;
+            }
+            
+            #expirationdate
+            {
+                
+                 width:30%;
+                margin-right: -10%;
+                margin-top: -4%;
+            }
+            
+            
+            #howwework 
+            {
+                margin-top: 10%;
+            }
+            #howwework h4
+            {
+                font-size: 20px;
+            }
+            
+            #howwework h5
+            {
+              font-size: 14px;   
+            }
+            
+            .breakfastmenu h3, .lunchmenu h3, .dinnermenu h3
+            {
+                font-size:15px;
+            }
+            
+            .breakfastmenu h4, .lunchmenu h4, .dinnermenu h4
+            {
+                 font-size:12px;
+            }
+            
+            .services
+            {
+                display:none;
+            }
+        }
+        
+        .addressdiv
+        {
+            width:100%;
+        }
+       
+        
+        footer h3
+        {
+            text-align: center;
+            color: dimgrey;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        footer h4
+        {
+            text-align: center;
+            color: dimgrey;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    
+        #myCarousel
+        {
+           
+           margin-left: 1%;
+           
+        }
+        
+        .detailspicture img
+        {
+            width:75%;
+            margin: auto;
+            
+             height:200px;
+           
+        }
+        
+        .howwework
+        {
+            margin-top: 5%;
+            background-color: #F5F5F5;
+            margin-bottom: 10%;
+            
+        }
+         .howwework h4
+        {
+            font-size: 26px;
+            margin-top: -3%;
+            text-align: center;
+        }
+        
+        .howwework h5
+        {
+            margin-top: 0px;
+            font-size: 16px;
+            text-align: center;
+        }
+        
+        footer
+        {
+            width:100%;
+            margin-top:0%;
+            background-color:black;
+            position: fixed;
+            bottom: 0px;
+           
+        }
+        
+        #detailsheader
+        {
+            text-align: center;
+        }
+        
+        #detailspicture
+        {
+            margin-left: 25%;
+            border:1px solid #BDBDBD;
+            
+        }
+        
+        #detailsdescription
+        {
+            margin-left: 35%;
+        }
+        
+        .imagesection h3, .imagesection h4
+        {
+            display: none;
+        }
+
+        
+        #detailsdescription
+        {
+            
+            margin-left: 0px;
+        }
+        
+        #detailsdescription h3, #detailsdescription h4
+        {
+            text-align: center;
+            
+        }
+        
+        #detailsdescription h3
+        {
+            font-size: 18px;
+        }
+        
+        #detailsdescription h4
+        {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container-fluid"> <!--Beginning of container-->
+  <div class="row"> <!--Beginning of header row-->
+       
+        <div class="col-lg-12 menubar">
+        
+            <nav class="navbar navigationmenu">
+  
+                <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span> 
+                </button>
+                <img src="images/niloskitchenlogo.jpg" class="niloskitchenlogo  img-responsive">
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav menu">
+                
+                <li><a href="#menucard">MENU</a></li>
+                <li><a href="#menucard">PARTY</a></li> 
+                <li><a href="#howwework">HOW IT WORKS</a></li> 
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                
+                <li><a href="#"><i class="fa fa-shopping-bag fa-lg" data-toggle="modal" data-target="#cartModal"></i> Bag</a></li>
+                </ul>
+                </div>
+  
+            </nav>
+           
+        </div>
+  </div>  <!--End of header row-->
+    
+ 
+  <div class="row">  <!--start of carousel-->
+      <div class="col-lg-1 col-md-1">
+          
+      </div>
+      <div class="col-lg-10 col-md-10 carouseldiv">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+      <li data-target="#myCarousel" data-slide-to="2"></li>
+      <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <div class="item active">
+        <img src="images/slider/caraousel_image1.jpg" class="img-responsive" alt="carousalimage">
+        <div class="carousel-caption">
+          <h3>Papdi chaat</h3>
+            
+          <p>Revive your tastebuds by tasting our delicious chatpata chaat. 
+          </p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="images/slider/caraousel_image2.jpg" class="img-responsive" alt="carousalimage">
+        <div class="carousel-caption">
+          <h3>Chole Bhatura</h3>
+          <p>The very famous north indian breakfast dish, garma garam chole served with soft bhatura. Served with onions and pickle will make               your day</p>
+        </div>
+      </div>
+    
+      <div class="item">
+        <img src="images/slider/caraousel_image3.jpg" class="img-responsive" alt="carousalimage" >
+        <div class="carousel-caption">
+          <h3>Masala dosa</h3>
+          <p>Perfectly cooked crispy masala dosa served with coconut chutney and delicious sambhar.</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="images/slider/caraousel_image4.jpg" class="img-responsive" alt="carousalimage">
+        <div class="carousel-caption">
+          <h3>Paneer butter masala</h3>
+          <p>Perfectly cooked melt in mouth paneer, cooked with cashewnut gravy.</p>
+        </div>
+      </div>
+  
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+    </div> 
+      </div>
+      
+    <div class="col-lg-1 col-md-1">
+          
+      </div>
+  </div> <!--end of caraousel-->
+   
+  <div class="row" id="menucard">  <!--start of meals-->  
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 breakfastmenu">
+        <h3>Breakfast</h3>
+        <h4>7.00am-10.00am</h4>
+    </div>
+    
+      
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 lunchmenu">
+        <h3>Lunch</h3>
+        <h4>11.30pm-2.00pm</h4>
+    </div>
+      
+      
+    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 dinnermenu">
+        <h3>Dinner</h3>
+        <h4>7.30pm-9.00pm</h4>
+    </div>
+    
+  </div> <!--end of meals-->
+<span><i class="fa fa-caret-down fa-3x breakfastcaret"></i></span>
+<span><i class="fa fa-caret-down fa-3x lunchcaret"></i></span>
+<span><i class="fa fa-caret-down fa-3x dinnercaret"></i></span>
+
+  <div class="row"> <!--start of menu-->   
+    <div class="col-lg-1 ">
+          
+    </div>
+      
+    <div class="col-lg-10 menufororder">
+        <div class="row breakfastrows">
+        <div class="section1">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection"> 
+            <img src="images/menuimage/breakfastimage2.jpg" class=" itemimage"  alt=""/>
+            <span><i class="fa fa-share fa-2x moreinformation" id="itemdetialsicon" ></i></span>
+            <h3>Mumbai special vada pav and garlic chutney</h3>
+            <h4>Mumbaikars favourite food item loved by all age groups. Perfect snack item.</h4>
+        </div>
+         
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Mumbai special vada pav and garlic chutney</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                 <p>Rs 35</p>
+                 
+                    <span id="hearts"> <i class="fa fa-heart fa-lg likeheart" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart fa-lg likeheart" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart fa-lg likeheart" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 " id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity"  value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart" >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x" onClick="thumbsUp(this)"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+        </div>   
+        <div class="section2" >
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/breakfastimage1.jpg" class=" itemimage" alt=""/>
+        <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+        <h3>Garma garam aloo paratha and boondi raita</h3>
+        <h4>Aloo paratha, served with dahi is the best breakfast. Paratha will make your tummy full</h4>
+        </div> 
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p> Garma garam aloo paratha and boondi raita</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                 <p>Rs 75</p>
+                  <!--<img src="images/menuimage/chef.png" alt="chefslogo" id="chefslogo1" class=" img-circle"/>-->
+                <span id="hearts"> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> 
+                </span>
+               
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart" >Add to cart</button><br />
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="row breakfastrows">
+        <div class="section1">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9" >
+                <p>Healthy rava upma served with coconut chutney </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12  col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                 <p>Rs 65</p>
+                 
+                  <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                 
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart">Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+       <img src="images/menuimage/dinnerimage4.JPG" class=" itemimage" alt=""/>
+        <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+        <h3>Healthy rava upma served with coconut chutney</h3>
+        <h4>Start your day with healthy rava upma served with ghee and cocunut chutney. It cant get any healthier!</h4>
+        </div>
+        </div>
+            
+            <div class="section2">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Classic punjabi chole bhature served in onions </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                 <p>Rs 100</p>
+                 
+                 <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                 
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart" >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/breakfastimage4.jpg" class=" itemimage" alt=""/>
+        <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+        <h3>Classic punjabi chole bhature served in onions</h3>
+        <h4>Start your day with healthy garama garam chole and bhatura, just the heavenly combination you were looking for</h4>
+        </div>
+        </div>
+            
+        </div>
+        
+        <div class="row lunchrows">
+         <div class="section1">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection"  > 
+            <img src="images/menuimage/lunchimage1.jpg" class=" itemimage" alt=""/>
+            <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+            <h3>Melt in mouth malai kofta in cashewnut gravy</h3>
+        <h4>Enjoy the rich malai kofta served in cashewnut gravy. This is a perfect dish to be ordered for parties and gatherings.</h4>
+        </div>
+          
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Melt in mouth malai kofta in cashewnut gravy</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                 <p>Rs 150</p>
+                
+                  <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                 
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart" >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+     </div> 
+         <div class="section2">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/lunchimage2.jpg" class=" itemimage" alt=""/>
+        <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+        <h3>Chatpati kurkuri bhindi tooped with chaat masala </h3>
+        <h4>Kurkuri bhindi is my all time favourite dish. All the bhindi lovers this is for you.</h4>
+        </div> 
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12  contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Chatpati kurkuri bhindi tooped with chaat masala </p>
+                </div>
+                
+                <div class="col-lg-3  col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                 <p>Rs 90</p>
+                
+                   <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                 
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6  col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart">Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+        </div>
+        
+        <div class="row lunchrows lunchrow2">
+         <div class="section1">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Spicy paneer tikka masala with naan and roti </p>
+                
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 ">
+                 <p>Rs 175</p>
+               
+                 <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                 
+                </span>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart"  >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/lunchimage3.jpg" class=" itemimage" alt=""/>
+        <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+        <h3> Spicy paneer tikka masala with naan and roti </h3>
+        <h4>Paneer tikka masala is my all time favourite dish. All the paneer lovers this is for you.</h4>
+        </div> 
+            </div>
+            
+             <div class="section2">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Dry aloo, jira,onion sabji cooked to perfection</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 coml-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                 <p>Rs 100</p>
+                  <!--<img src="images/menuimage/chef.png" alt="chefslogo" id="chefslogo1" class=" img-circle"/>-->
+                  <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart"  >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/lunchimage4.jpg" class=" itemimage" alt=""/>
+        <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+        <h3> Dry aloo jira with onions and herbs </h3>
+        <h4>This is a very famous northeastern sabji cooked to perfection. </h4>
+        </div>
+            </div>
+        </div>
+        
+        <div class="row dinnerrows">
+         <div class="section1">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection"> 
+            <img src="images/menuimage/dinnerimage1.jpg" class=" itemimage" alt=""/>
+            <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+            <h3> Vegetable dum biriyani served withboondi raita</h3>
+        <h4>Complete your main course by tasting our delicious dum biryani</h4>
+        </div>
+          
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Vegetable dum biriyani served withboondi raita</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                 <p>Rs 125</p>
+                
+                   <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                 
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart">Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            </div>
+         <div class="section2">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/dinnerimage2.jpg" class=" itemimage" alt=""/>
+        <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+        <h3> Mouth watering, Indianised chinese hakka noodle</h3>
+        <h4>Try out our indianised version of noodles served with chilly sause</h4>
+        </div> 
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Mouth watering, Indianised chinese hakka noodle</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                 <p>Rs 75</p>
+                
+                   <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart" >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+        </div>
+         <div class="row dinnerrows dinnerrows2">
+         <div class="section1">
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                <p>Mumbai's loved item pavbhaji in amul butter </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                 <p>Rs 85</p>
+                 
+                  <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                 
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i> 
+                    <button type="submit" class="btn btn-warning addToCart" >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/dinnerimage3.jpg" class= "itemimage" alt=""/>
+            <span><i class="fa fa-share fa-2x moreinformation"></i></span>
+            <h3> Mumbai's loved item pavbhaji in amul butter</h3>
+        <h4>Enjoy the mumbais famous pav bhaji</h4>
+        </div>
+        </div>
+         <div class="section2">
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 contentsection">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                
+                <p>Delicious vegetable pulav served with kadhi </p>
+                </div>
+                
+                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 vegmark">
+                <img src="images/menuimage/vegmark.png" class="img-responsive" id="vegmark" alt="vegmark"/>
+                </div>
+                
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rate">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                 <p>Rs 60</p>
+                  
+                   <span id="hearts"><i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i><i class="fa fa-                    heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg"                              style="color:white;" onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;"                                onClick="colourheart(this)"></i> <i class="fa fa-heart likeheart fa-lg" style="color:white;" onClick="colourheart(this)"></i>
+                
+                </span>
+                </div>
+            
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6" id="cart">
+                    <i class="fa fa-plus-circle fa-lg"></i>
+                    <input type="text" class="btn btn-default quantity" value="0" disabled>
+                    <i class="fa fa-minus-circle fa-lg"></i>
+                    <button type="submit" class="btn btn-warning addToCart" >Add to cart</button>
+                    <span><i class="fa fa-thumbs-up fa-2x"></i> <i class="fa fa-thumbs-down fa-2x"></i></span>
+                </div>
+            </div>
+            
+        </div>
+            
+        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12 imagesection">
+        <img src="images/menuimage/dinnerimage4.JPG" class="itemimage" alt=""/>
+            <span><i class="fa fa-share fa-2x moreinformation"></i></spaan>
+             <h3>Delicious vegetable pulav served with kadhi</h3>
+        <h4>Enjoy the kadhi pulav and pakoda of northeast</h4>
+        </div>
+             </div>
+        </div>
+    
+      
+    </div>
+      
+      
+    <div class="col-lg-1 ">
+          
+    </div>
+  </div><!--end of menu-->
+  
+    <div id="howwework" class=" howwework col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h4 class="services">Nilo's Kitchens services</h4>
+            
+        <h5>We love it when we get delicious home made food delivered to our house in just few minutes. </h5>
+        </div>
+        
+        <div class="imagesofhowwework col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 detailspicture">
+                <img src="images/menu1.png" class="img-responsive" alt="menulogo" />
+                <h5>Step 1: Hungry? Just browse throught our menu and choose your favourite item</h5>
+            </div>
+            
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 detailspicture">
+                 <img src="images/menu2.png" class="img-responsive" alt="menulogo" />
+                 <h5>Step 2:Our expertised home made cooks will cook the best food</h5>
+            </div>
+            
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 detailspicture">
+                 <img src="images/menu3.png" class="img-responsive" alt="menulogo" />
+                <h5>Step 3: The food will be delivered to you within 30 minutes</h5>
+            </div>
+        
+        </div>
+    
+    </div>
+    
+<footer>
+    
+    <div id="contactus" class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    
+        <h3>Created by: Nilima Mahajan</h3>
+        <h4>Contact information: <a href="mailto:mahajan.v@husky.neu.edu">mahajan.v@husky.neu.edu</a></h4>
+    </div>
+  
+</footer>
+   
+</div> <!--End of container class-->
+
+<!---------------------------------------------------------Details modal window------------------------------------------------------------->
+    <div class="modal fade" id="detailsModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+          
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"> <i class="fa fa-times-circle fa-lg"></i></button>
+         <h3 id="detailsheader">Item details</h3>
+        </div>
+          
+        <div class="modal-body">
+            <div>
+                <img src="images/menuimage/breakfastimage1.jpg" alt="menuitemimage" class="img-responsive" id="detailspicture" />
+                
+            </div>
+
+            <div id="detailsdescription">
+                <h3>Menu item name</h3>
+                <h4>Menu item description</h4>
+            </div>  
+      
+        </div>
+        </div>
+        </div>
+        </div>
+    
+    
+    
+    
+    
+<!------------------------------------------------------------Cart modal window------------------------------------------------------------->
+
+<div class="modal fade" id="cartModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+          
+        <div class="modal-header" id="cartmodalheader">
+        <button type="button" class="close" data-dismiss="modal"> <i class="fa fa-times-circle fa-lg"></i></button>
+        <span><i class="fa fa-shopping-cart fa-4x"></i></span>
+        <h4>Order summary</h4>
+        </div>
+          
+        <div class="modal-body" id="cartmodalbody">
+        <div class="table-responsive">          
+            <table class="table table-hover table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+            </tbody>
+            </table>
+        </div>
+        
+            <span id="orderTotal">Order total:Rs</span>
+            <input type="text" class="btn btn-default ordertotal" disabled/>
+            
+            <input type="button" class="btn btn-warning" id="checkout" value="Check out"> 
+            <div class="addressdiv">
+                <h4>Personal details</h4>
+                
+                <form class="form-inline" ng-app="myApp" id="personaldetails" ng-controller="validateCtrl" name="myForm" novalidate>
+                 
+                    
+                    <div class="form-group addressline1">
+                        <label for="addressline1">Address:</label>
+                        <input type="text" name="addressline1" ng-model="addressline1" ng-model-options="{ updateOn: 'blur' }" class="form-control" placeholder="Address" required >
+                        <span style="color:red" ng-show="myForm.addressline1.$dirty && myForm.addressline1.$invalid">
+                        <span class="addresslineerror" ng-show="myForm.addressline1.$error.required">Enter the address.</span>
+                        </span>
+ 
+                    </div>
+                        
+                     <div class="form-group zipcode">
+                        <label for="zipcode">Zipcode:</label>
+                        <input type="text" name="zipcode" ng-model="zipcode"ng-model-options="{ updateOn: 'blur' }" class="form-control"                                 placeholder="Zipcode" min="10" max="10" required maxlength="6" valid-number onKeyUp="ajaxFunction(this.value)">
+                         
+                        <span id="zipcodespan" style="color:red" ng-show="myForm.zipcode.$dirty && myForm.zipcode.$invalid">
+                        <span class="zipcodeerror" id="zipcodeId" ng-show="myForm.zipcode.$error.required">Enter the zipcode.</span>
+                        <span class="zipcodeerror" ng-show="myForm.zipcode.$error.min || myForm.zipcode.$error.max"> Enter a valid zipcode</span>
+                        </span>
+                         <div id="zipcodelist"></div>
+ 
+                    </div>
+                         <br/ >
+                    <div class="form-group city">
+                        <label for="city">City:</label>
+                        <input type="text" name="city" class="form-control" ng-model="city" ng-model-options="{ updateOn: 'blur'}"                                        placeholder="City" required readonly>
+                        <span style="color:red" ng-show="myForm.city.$dirty && myForm.city.$invalid">
+                        <span class="cityerror" id="cityerrormessage" ng-show="myForm.city.$error.required">Enter the city.</span>
+                        </span>
+ 
+                    </div>
+                     <br />
+                    <div class="form-group state">
+                        <label for="state">State:</label>
+                        <input type="text" name="state" class="form-control" ng-model="state" ng-model-options="{ updateOn: 'blur' }"                                     placeholder="State" required readonly>
+                        <span style="color:red" ng-show="myForm.state.$dirty && myForm.state.$invalid">
+                        <span class="stateerror" id="stateerrormessage" ng-show="myForm.state.$error.required">Enter the state.</span>
+                        </span>
+                       
+                    </div>
+                    <br />
+                    <div class="form-group email">
+                        <label for="email">Email:</label>
+                        <input type="email" name="email" ng-model="email" ng-model-options="{ updateOn: 'blur' }" class="form-control"                                    placeholder="Email address" required ng-pattern=" /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/">
+                        <span style="color:red" ng-show="myForm.email.$dirty && myForm.email.$invalid">
+                        <span class="emailerror" ng-show="myForm.email.$error.required">Enter the email.</span>
+                        <span class="emailerror" ng-show="myForm.email.$error.pattern">Enter a valid email.</span>
+                        </span>
+ 
+                    </div>
+                    <br/ >
+                     <div class="form-group phonenumber">
+                        <label for="phonenumber">Phonenumber:</label>
+                        <input type="text" name="phonenumber" ng-model="phonenumber" class="form-control" placeholder="Phone number"                                      maxlength="10" min="10" max="10" required valid-number required ng-pattern="/^[0-9]{10,14}$/">
+                        <span style="color:red" ng-show="myForm.phonenumber.$dirty && myForm.phonenumber.$invalid" ng-                                                   hide="myForm.phonenumber.$valid">
+                        <span class="phonenumbererror" ng-show="myForm.phonenumber.$error.pattern"> Enter a 10 digit number</span>
+                        <span class="phonenumbererror" ng-show="myForm.phonenumber.$error.required">Enter the number.</span>
+                        </span>
+ 
+                    </div>
+                        
+                    <div>
+                    <input type="submit" class="btn btn-warning submitbtn"  id="submitbtn"
+                           
+                     ng-disabled="myForm.addressline1.$invalid ||myForm.email.$invalid ||myForm.phonenumber.$invalid">
+
+                    </div>
+                    <input type="reset" class="btn btn-default resetBtn"/>
+                        
+                    
+                </form>
+            
+            
+            
+            
+            
+            </div>
+            <div class="paymentdiv hidediv" >
+                <h4>Payment Methods</h4>
+                <form>
+                <form role="form">
+                <div class="radio">
+                <input type="radio" id="cashondelivery" name="optradio" /> <span>Cash on delivery </span>
+                <div class="termsandcondition">
+                <p>Terms and conditions:</p>
+                <input type="checkbox" id="check" value=""> Kindly read the terms and conditions and agree to them before placing the order
+                </div>
+                  <input type="submit" class="btn btn-warning placeorderbycod" value="Place order" >
+                </div>
+                <div class="radio">
+                <input type="radio" id="creditordebitpayment" name="optradio" /><span>Make a credit/debit card payment</span>
+                
+                </div> 
+                    
+                   
+                </form>
+                <div id="carddetails">
+                    <form class="form-inline" id="ccpaymentmethodform">
+                    <div class="form-group cardnumber">
+                        <label for="cardnumber">Card number:</label>
+                        <input type="text" class="form-control" name="cardnumber" maxlength="16" placeholder="Card number">
+                        
+                    </div>
+                    <div class="form-group cardholdersname">
+                        <label for="cardholdersname">Cardholders name:</label>
+                        <input type="text" class="form-control" name="cardname" placeholder="Cardholder name">
+                    </div>
+                    <div class="form-group cvv"> 
+                        <label for="cvv">CVV:</label>
+                        <input type="text" class="form-control" maxlength="3" id="cvv" name="cvv" placeholder="CVV">
+                    </div>
+                        
+                    <div class="form-group expirationdate"> 
+                        <label for="expiry">Expiration date:</label>
+                        <input type="date" id="expirationdate" name="expiration" min="2015-12-19" max="2025-01-01" class="form-control" >
+                       
+                    </div>
+                        <input type="submit" class="btn btn-warning placeorderbtn" value="Place order" >
+                </form>
+                    
+                    
+                </div>
+                
+               </form>
+                
+            </div>
+            
+              <div class="confirmation">
+                    <h4> Congratulations your order has been successfully placed</h4>
+                    
+                </div>
+     </div>
+      
+    </div>
+  </div>
+</div>
+  
+    <!-------------------------------------------------------------scripts------------------------------------------------------------------>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="http://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
+  <script src="http://jqueryvalidation.org/files/dist/additional-methods.min.js"></script>
+            
+  <!---------------------------------------------------------angular js scripts------------------------------------------------------------->
+            <script>
+                var app = angular.module('myApp', []);
+                    app.controller('validateCtrl', function($scope) {
+                    $scope.address1 = '';
+                    $scope.zipcode = '';
+                    $scope.city = '';
+                    $scope.state = '';
+                    $scope.email = '';
+                    $scope.phonenumber = '';
+                });
+                
+                app.directive('validNumber', function() {
+                    return {
+                        require: '?ngModel',
+                        link: function(scope, element, attrs, ngModelCtrl) {
+                        if(!ngModelCtrl) {
+                        return; 
+                        }
+
+                        ngModelCtrl.$parsers.push(function(val) {
+                        if (angular.isUndefined(val)) {
+                        var val = '';
+                        }
+                        var clean = val.replace( /[^0-9]+/g, '');
+                        if (val !== clean) {
+                        ngModelCtrl.$setViewValue(clean);
+                        ngModelCtrl.$render();
+                        }
+                        return clean;
+                        });
+
+                        element.bind('keypress', function(event) {
+                        if(event.keyCode === 32) {
+                        event.preventDefault();
+        }
+      });
+    }
+  };
+});
+            </script>
+
+     <!-----------------------------------------------------------Jquery-------------------------------------------------------------------->
+ <script>
+     $(document).ready(function(){
+      
+    $(".itemimage").click(function(){
+            var name=$(this).next().next();
+            var details=$(this).next().next().next();
+            var link=$(this).attr("src");
+       
+          $("#detailspicture").attr("src",link);
+            $("#detailsdescription h3").html(name.html());
+          $("#detailsdescription h4").html(details.html());
+          
+         
+          
+           $(this).attr( "data-toggle", "modal" );
+           $(this).attr("data-target","#detailsModal");
+        });
+         
+     $("legend button:nth-child(2)").click(function(){
+        $(".login").css("display", "none");
+         $("legend button:nth-child(2)").removeClass( "btn btn-default" ).addClass( "btn btn-warning" );
+         $("legend button:nth-child(1)").removeClass( "btn btn-warning" ).addClass( "btn btn-default" );
+         $(".signup").css("display", "block");
+         $("legend button:nth-child(2)").css("border","none");
+      
+    });
+    $("legend button:nth-child(1)").click(function(){
+        $(".login").css("display", "block");
+        $("legend button:nth-child(2)").removeClass( "btn btn-warning" ).addClass( "btn btn-default" );
+         $("legend button:nth-child(1)").removeClass( "btn btn-default" ).addClass( "btn btn-warning" );
+         $(".signup").css("display", "none");
+    });
+         
+    $(".breakfastmenu").mouseenter(function(){
+                
+           $(this).css("background-image", "url(images/background.jpg)"); 
+           $(".breakfastcaret").css("visibility","visible");
+            $(".lunchrows").css("display","none");
+             $(".dinnerrows").css("display","none");
+            
+                              
+    });
+        
+         
+     $(".breakfastmenu").mouseleave(function(){
+           
+           $(this).css("background-image", "none");  
+            $(".breakfastcaret").css("visibility","hidden");
+             $(".lunchrows").css("display","block");
+             $(".dinnerrows").css("display","block");
+            
+                              
+    });
+         
+     $(".lunchmenu").mouseenter(function(){
+                
+           $(this).css("background-image", "url(images/background.jpg)"); 
+           $(".lunchcaret").css("visibility","visible");
+            $(".breakfastrows").css("display","none");
+             $(".dinnerrows").css("display","none");
+                              
+    });
+         
+     $(".lunchmenu").mouseleave(function(){
+                
+           $(this).css("background-image", "none"); 
+           $(".lunchcaret").css("visibility","hidden");
+            $(".breakfastrows").css("display","block");
+             $(".dinnerrows").css("display","block");
+                              
+    });
+         
+     $(".dinnermenu").mouseenter(function(){
+                
+           $(this).css("background-image", "url(images/background.jpg)"); 
+            $(".dinnercaret").css("visibility","visible");
+            $(".lunchrows").css("display","none");
+             $(".breakfastrows").css("display","none");
+                              
+    });
+         
+     $(".dinnermenu").mouseleave(function(){
+                
+           $(this).css("background-image", "none");                   
+           $(".dinnercaret").css("visibility","hidden");  
+          $(".lunchrows").css("display","block");
+             $(".breakfastrows").css("display","block");
+    });
+         
+    $(".fa-plus-circle").click(function(){
+        var inputbox=$(this).next();
+        var value1=$(this).next().val();
+        value1=Number(value1)+1;        
+        $(inputbox).removeAttr('value');
+        $(inputbox).attr("value",value1);
+
+    });
+         
+         $(".fa-minus-circle").click(function(){
+        var inputbox=$(this).prev();
+        var value1=$(this).prev().val();
+        if(value1==0)
+            {
+                
+            }
+             
+             else
+             {
+                  value1=Number(value1)-1;        
+                  $(inputbox).removeAttr('value');
+                  $(inputbox).attr("value",value1);
+             }
+
+         });
+         
+        $(".fa-thumbs-up").click(function(){
+          
+           $(this).css("color","#FF9800")
+           $(this).next().css("color","#FFCC80")
+        });
+         
+        $(".fa-thumbs-down").click(function(){
+           
+           $(this).css("color","#FF9800")
+           $(this).prev().css("color","#FFCC80")
+           $(this).prev().css("color","#FFCC80")
+        });
+        
+         var total=Number(0);
+        $(".addToCart").click(function(){
+           
+            var item=$(this).parent().parent().parent().parent().find('.itemimage').attr('src');
+           
+            var description=$(this).parent().parent().parent().children().children().html();
+           
+            var price=$(this).parent().prev().children().html();
+            var inprice=price.substr(2,3);
+            
+            var quantity=$(this).parent().find("input").val();
+          
+            var totalprice=Number(inprice)*Number(quantity);
+            
+            if(quantity==0)
+                {
+                   $(this).parent().find('.quantity').css("border","1px solid red");
+                }
+            else
+                {
+                    $(this).parent().find('.quantity').css("border","none");
+                    var flag;
+                    
+                    var rows=$("tbody").children();
+                    var count=0;
+                    for(var i=0;i<$(rows).length;i++)
+                        {
+                           
+                           if(($(rows).eq(i).find('p').html()==$(description).html()))
+                               {
+                                   count++;
+                                   var newqty=Number($(rows).eq(i).children().eq(3).html())+Number(quantity);
+                                  
+                                   var newprice= Number(newqty)*Number(inprice);
+                                  
+                                   $(rows).eq(i).children().eq(3).text(newqty);
+                                   $(rows).eq(i).children().eq(4).text("Rs"+ newprice);
+                                  
+                                   $(this).attr( "data-toggle", "modal" );
+                                   $(this).attr("data-target","#cartModal");
+                                   total=Number(total)+Number(inprice);
+                                   $(".ordertotal").val(total);
+                                  
+                                   break;
+                               }
+                        
+                          
+                        }
+                    
+                    if(count==0){
+                        
+                        
+                                   $(this).attr( "data-toggle", "modal" );
+                                   $(this).attr("data-target","#cartModal");
+                                  /* total=Number(total)+Number(inprice);
+                                   alert("the total is"+total);*/
+                                   var listitem="<tr> <td><img src ='"+item+"' class='thumbnail img-rounded'/></td> <td>"+description+"</td>                                        <td>"+price+"</td><td>"+quantity+"</td> <td>Rs "+totalprice+"</td></tr>";
+                                    $("tbody").append(listitem);
+                                    total=Number(total)+totalprice;
+                                    $(".ordertotal").val(total);
+                                    $("#checkout").css("display","block");
+                
+                                  
+                    }   
+                }
+            
+           
+           
+        });
+         
+         $(".itemimage").mouseover(function(){
+             $(this).css("opacity",0.4);
+            
+             $(this).next().children().css("display","block");
+             
+         });
+         
+         $(".itemimage").mouseout(function(){
+             $(this).css("opacity",1);
+             $(this).next().children().css("display","none");
+         });
+         
+         $("#cashondelivery").click(function(){
+             
+             $(".termsandcondition").slideDown(1000);
+             $("#carddetails").slideUp(1000);
+              
+             
+         });
+         
+    
+          $("#check").click(function(){
+         if($(this).prop('checked', true))
+                 {
+                    
+                     $(".placeorderbycod").fadeIn(1000);
+                     $(".termsandcondition").slideUp(1000);
+                 }
+             
+                });
+         
+         $("#creditordebitpayment").click(function(){
+         if($(this).prop('checked', true))
+                 {
+                     $(".termsandcondition").slideUp(1000);
+                      $(".placeorderbycod").hide();
+                     $(".placeorderbtn").fadeIn(1000);
+                     $("#carddetails").slideDown(1000);
+                 }
+             
+                }); 
+         
+         
+         
+         $("#ccpaymentmethodform").validate({
+                
+				rules:{
+					
+					    cardnumber:{
+						required:true,
+						number:true,
+                        minlength:16
+					},
+                    
+                    cardname:
+                    {
+                        required:true,
+                    },
+
+					cvv:{
+						required:true,
+						number:true,
+                        minlength:3
+					},
+                    
+                    expiration:
+                    {
+                        required:true,
+                    }
+
+				},
+
+				messages:{
+                    cardname:"Please enter a valid card name",
+					cardnumber:
+                    {
+                    required: "Please enter a valid number",
+                     minlength:"Enter 16 digit card number"
+                    },
+                   
+					
+					cvv:
+                    {
+                        required:"Please enter a valid CVV",
+                        minlength:"CVV must be three digits"
+                    
+                    },
+                    
+                     expiration:
+                        {
+                            required:"Please enter a date",
+                         
+             
+                        }
+          
+				},
+                
+                    submitHandler: function(form) {
+		            
+		              $(".paymentdiv").slideUp(1200);
+                        
+                      $(".confirmation").slideDown(500);
+                        
+                       /*alert($("#time").html(now()));*/
+                        }
+
+			});
+         
+         $("#checkout").click(function(){
+             $(".confirmation").hide();
+             $(".addressdiv").slideToggle(1200);
+             
+                if($(this).val()=="Check out")
+                    {
+                         $(this).val("Continue shopping");
+                    }
+             
+             else
+                 {
+                     $(this).val("Check out");
+                 }
+               
+         });
+         
+         $(".submitbtn").click(function(){
+                    
+                    $("#checkout").hide();
+                    $(".addressdiv").slideUp(2000);
+                    $(".paymentdiv").removeClass("hidediv");
+         });
+         
+        
+         $(".city input").blur(function(){
+             if($((".city input").is('[readonly]')))
+            {
+                alert($("#cityerrormessage").html());
+                $("#cityerrormessage").html("");
+            }
+             
+         });
+         
+         
+    
+         $(".placeorderbycod").click(function(){
+             $(".paymentdiv").slideUp(1000); 
+             $(".confirmation").slideDown(500);
+         });
+            
+        
+       
+        
+});
+     
+         
+</script>
+
+ <!-----------------------------------------------------------Javascript-------------------------------------------------------------------->
+<script>
+   function displayOTPInput(checkedBox)
+         {
+            
+             if (checkedBox.checked)
+             {
+               
+                document.querySelectorAll(".otpcheckbox input:nth-of-type(2)")[0].style.display="block";
+                document.querySelectorAll(".mobile")[0].style.display="none"; 
+                document.querySelectorAll(".password")[0].style.display="none"; 
+                
+                 
+             }
+             else
+             {
+                document.querySelectorAll(".otpcheckbox input:nth-of-type(2)")[0].style.display="none";
+                document.querySelectorAll(".mobile")[0].style.display="block"; 
+                document.querySelectorAll(".password")[0].style.display="block"; 
+             }
+        }
+
+    function colourheart(heart)
+    {
+       
+        var colour=heart.style.color;
+        if(colour.toString()==='white')
+            {
+               heart.style.color='#FF9800';
+                
+            }
+        else
+            {
+              heart.style.color='white';
+            }
+    }
+    
+
+</script>
+<!--------------------------------------------------------------ajax-------------------------------------------------------------------------->
+<script type="text/javascript">
+function ajaxFunction(zipcode)   //functionName could be anything
+{
+	var xmlHttp;
+   
+	try    
+	{
+		xmlHttp=new XMLHttpRequest();
+	}
+	catch (e)
+	{
+		try 
+		{
+			xmlHttp=new ActiveXObject("Msxml2.XMLHTTP");
+		}
+		catch (e)
+		{
+			try
+			{
+				xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			catch (e)
+			{
+				alert("Not supporting AJAX!");
+				return false;
+			}
+		}
+	}
+	
+	xmlHttp.open("GET", "jsp/zipcode.jsp?q=" + zipcode, true);   
+	xmlHttp.send();  
+
+	xmlHttp.onreadystatechange=function()
+	{
+		if(xmlHttp.readyState==4)
+		{
+			
+			var zip = document.getElementById("zipcodelist");
+			var serverData = xmlHttp.responseText;
+			zip.innerHTML =serverData;
+            
+            
+            $(".zipcode li").click(function(){
+              
+                $(".zipcode input").val($(this).html());
+                zip.innerHTML="";
+                var city= $(this).next();
+                var state= $(this).next().next();
+                $(".city input").val($(city).html()).attr('readonly', true);
+                $(".state input").val($(state).html()).attr('readonly', true);
+                $("#zipcodeId").hide();
+                
+            });
+		}
+	}
+
+}
+</script>
+    
+</body>
+</html>
