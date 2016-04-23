@@ -549,6 +549,7 @@
                            		<ul class="nav nav-tabs">
   									<li class="active" ><a href="#userRegister" data-toggle="tab">User Registration</a></li>
  									<li><a href="#advertiserRegister" data-toggle="tab">Advertiser Registration</a></li>
+ 									<li><a href="#adminRegister" data-toggle="tab">Admin Registration</a></li>
 									<li><a href="#login" data-toggle="tab">Login</a></li>
 								</ul>
 								
@@ -677,6 +678,56 @@
 <!--                             </form> -->
                                 </form:form>
                                 </div>
+                                
+                                    
+                                <div id="adminRegister" class="tab-pane">
+                                <br />
+                                	 <form:form action="registerAdmin.htm" commandName="admin" method="post" class="form-horizontal" role="form">
+
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="fname">First Name:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="firstName" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="name">Last Name:</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lastName" />
+                                    </div>
+                                </div>
+   
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="username">Username:</label>
+                                    <div class="col-sm-9"> 
+                                        <input type="text" class="form-control" id="username" placeholder="Enter username" name="userName" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="password">Password:</label>
+                                    <div class="col-sm-9"> 
+                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" />
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="control-label col-sm-3" for="retype_password">Retype password:</label>
+                                    <div class="col-sm-9"> 
+                                        <input type="password" class="form-control" id="retypepassword" placeholder="Retype password">
+                                    </div>
+                                </div>
+                                
+                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <input type="reset" class="btn btn-primary" value="Reset" />
+
+                                </form:form>
+                                </div>
+                                
+                                
+                                
+                                
                                 </div>
                             </div>
 

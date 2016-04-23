@@ -9,8 +9,8 @@ import java.util.Set;
 import org.hibernate.Query;
 
 import com.webtools.finalproject.pojo.Memory;
-import com.webtools.finalproject.pojo.Person.Roles;
 import com.webtools.finalproject.pojo.User;
+import com.webtools.finalproject.pojo.Person.Roles;
 
 public class MemoryDAO extends DAO {
 

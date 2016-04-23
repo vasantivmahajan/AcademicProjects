@@ -12,8 +12,8 @@ import org.hibernate.Query;
 import com.webtools.finalproject.pojo.Advertiser;
 import com.webtools.finalproject.pojo.Event;
 import com.webtools.finalproject.pojo.Memory;
-import com.webtools.finalproject.pojo.Person.Roles;
 import com.webtools.finalproject.pojo.User;
+import com.webtools.finalproject.pojo.Person.Roles;
 
 public class EventDAO extends DAO {
 

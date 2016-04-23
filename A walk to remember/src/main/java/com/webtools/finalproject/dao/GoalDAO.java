@@ -12,8 +12,8 @@ import org.hibernate.Query;
 
 import com.webtools.finalproject.pojo.Goal;
 import com.webtools.finalproject.pojo.Memory;
-import com.webtools.finalproject.pojo.Person.Roles;
 import com.webtools.finalproject.pojo.User;
+import com.webtools.finalproject.pojo.Person.Roles;
 
 public class GoalDAO extends DAO {
 
@@ -32,7 +32,7 @@ public class GoalDAO extends DAO {
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             String enteredGoalDate = formatter.format(goalDate);
             goal.setGoalDate(enteredGoalDate);
-            
+            goal.setUser(user);
             
             goal.setGoalDescription(goalDescription);
             

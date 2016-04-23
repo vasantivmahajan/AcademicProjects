@@ -42,7 +42,7 @@ public class Event {
 	private String phoneNumber;
 	
 	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-	@JoinColumn(name = "personID")
+	@JoinColumn(name = "personId")
 	private Advertiser advertiser;
 	
 	public String getEventDate() {

@@ -15,18 +15,33 @@ import org.springframework.stereotype.Component;
 @Entity
 @Table(name="ADMIN")
 @Component
-@PrimaryKeyJoinColumn(name="personID")
+@PrimaryKeyJoinColumn(name="personid")
 public class Admin extends Person{
 	
-	Admin()
+	public Admin()
 	{}
 	
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-	@JoinColumn(name="user_id")
-	private List<Goal> goalList;
+	private Set<Goal> goalSet;
 	
-	
+	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	private Set<Event> eventSet;
+
+	public Set<Goal> getGoalSet() {
+		return goalSet;
+	}
+
+	public void setGoalList(Set<Goal> goalSet) {
+		this.goalSet = goalSet;
+	}
+
+	public Set<Event> getEventSet() {
+		return eventSet;
+	}
+
+	public void setEventSet(Set<Event> eventSet) {
+		this.eventSet = eventSet;
+	}
 
 	
 	

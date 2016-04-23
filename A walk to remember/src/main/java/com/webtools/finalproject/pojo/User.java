@@ -1,4 +1,5 @@
 package com.webtools.finalproject.pojo;
+
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -35,27 +36,12 @@ public class User extends Person{
 	private Set<Memory> memorySet = new HashSet<Memory>();
 
 	
-	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-	@JoinColumn(name="user_id")
+	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL, mappedBy="user")
 	private List<Goal> goalList;
-//	
+	
 	public User()
 	{}
 	
-//	
-//	@ManyToMany(fetch=FetchType.EAGER, mappedBy="user",cascade=CascadeType.ALL)
-//	private Set<Offers> offerSet;
-
-
-//
-//	public Set<Offers> getOfferSet() {
-//		return offerSet;
-//	}
-//
-//	public void setOfferSet(Set<Offers> offerSet) {
-//		this.offerSet = offerSet;
-//	}
-//
 	public List<Goal> getGoalList() {
 		return goalList;
 	}
