@@ -31,7 +31,7 @@ public class RegisterAdvertiserController {
 			
 			advDao.create(advertiser.getFirstName(),advertiser.getLastName(),advertiser.getPassword(),advertiser.getUserName());
 			HttpSession sessionObj = request.getSession();
-			sessionObj.setAttribute("advObj" , advertiser);
+			sessionObj.setAttribute("personObj" , advertiser);
 		} catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());
 			

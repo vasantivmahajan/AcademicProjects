@@ -58,7 +58,17 @@ public class RegisterController {
 			if(p!=null)
 			{
 				sessionObj.setAttribute("personObj" , p);
-				return "timeline";
+				if(p.getRoles().equals(Person.Roles.USER))
+				{
+					return "timeline";	
+				}
+				
+				else
+				{
+					return "advtimeline";	
+				}
+				
+				
 			}
 			
 			else

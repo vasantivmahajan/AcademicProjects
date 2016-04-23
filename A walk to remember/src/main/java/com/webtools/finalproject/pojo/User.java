@@ -13,7 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
+
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -21,12 +21,9 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 
-
-
 @Entity
 @Table(name="USER")
 @Component
-//@Scope("session")
 @PrimaryKeyJoinColumn(name="personID")
 public class User extends Person{
 
@@ -40,7 +37,6 @@ public class User extends Person{
 	
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
 	@JoinColumn(name="user_id")
-	
 	private List<Goal> goalList;
 //	
 	public User()

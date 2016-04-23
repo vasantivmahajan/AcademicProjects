@@ -1,5 +1,4 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
- <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,9 +13,17 @@
   <title>A walk to remember </title>
 
   <!-- Bootstrap core CSS -->
- 
+ <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
   <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+  <link href="resources/css/formcss.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="resources/css/reset.css"> <!-- CSS reset -->
+	<link rel="stylesheet" href="resources/css/style.css"> <!-- Resource style -->
+	<script src="resources/js/modernizr.js"></script> <!-- Modernizr -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="resources/js/main.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <link href="resources/fonts/css/font-awesome.min.css" rel="stylesheet">
@@ -54,11 +61,9 @@
             </div>
             <div class="profile_info">
               <span>Welcome </span>
-              <h2>${sessionScope.advObj.firstName}</h2>
+              <h2>${sessionScope.personObj.firstName}</h2>
             </div>
-            <div>
-            <h1>This is advertisers page</h1>
-            </div>
+            
           </div>
           <!-- /menu prile quick info -->
 
@@ -74,39 +79,37 @@
                   <ul class="nav child_menu" style="display: none">
                     <li><a href="#">View profile</a>
                     </li>
-                    <li><a href="#">View timeline</a>
-                      </li>
+                   
                   </ul>
                 </li>
         
-                <li><a><i class="fa fa-desktop"></i> Memories <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">View Memories</a>
-                    </li>
-                    <li>
-			           <a href="#">Add memories</a>
-                    </li> 
-                  </ul>
-                </li>
-                  
-                <li><a><i class="fa fa-table"></i> Goals <span class="fa fa-chevron-down"></span></a>
-                  <ul class="nav child_menu" style="display: none">
-                    <li id="setGoal"><a href="#">Set a goal</a> 
-                    </li>
-                    <li id="viewGoals"><a href="#">View all goals</a>
-                    </li>
-                  </ul>
-                </li>
-                  
                 <li><a><i class="fa fa-bar-chart-o"></i> Events <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">View all events</a>
+                    <li><a href="#">Add events</a>
                     </li>
-                    <li><a href="#">Manage events</a>
+                    <li><a href="viewEvents.htm">View events</a>
                     </li>
                    
                   </ul>
                 </li>
+                 <li><a><i class="fa fa-bar-chart-o"></i> Participants <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li><a href="#">View participants</a>
+                    </li>
+                    
+                  </ul>
+                </li>
+                
+                </li>
+                 <li><a><i class="fa fa-bar-chart-o"></i> LogOut <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li> <a href="logout.htm"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    </li>
+                    
+                  </ul>
+                </li>
+                
+               
               </ul>
             </div>
            
@@ -127,12 +130,12 @@
 
             <ul class="nav navbar-nav navbar-right">
               <li class="">
+              
                 <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                  <img src="resources/img/img.jpg" alt="">${sessionScope.advObj.firstName}
+                  <img src="resources/img/img.jpg" alt="">${sessionScope.personObj.firstName}
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 
-                <a href="logout.htm"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                   <li><a href="javascript:;"> My timeline</a>
                   </li>
@@ -148,11 +151,106 @@
              
           </nav>
         </div>
-
-      </div>
+	</div>
+ <div id="contentWindow" class="right_col" role="main">
  
+ <c:choose>
+ 	<c:when test="${flag=='EventAdded'}">
+ 	<br />
+ 		<h2 id="successfullyPostedAd">Successfully posted the advertisement</h2>
+ 		 <section id="cd-timeline" class="cd-container">
+		
+		<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="resources/img/cd-icon-picture.svg" alt="Picture">
+			</div> 
+
+			<div class="cd-timeline-content">
+				<h2>${addedEvent.eventTitle}</h2>
+				<p>${addedEvent.eventDescription}</p>
+				<p>${addedEvent.eventTiming}</p>
+				<h2>Contact at: </h2>
+				<p>${addedEvent.emailAddress}</p>
+				<p>${addedEvent.phoneNumber}</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">${addedEvent.eventDate}</span>
+			</div> 
+		</div> 
 
 
+	</section>
+    
+ 	</c:when>
+
+ 	<c:when test="${flag=='fetchEvents'}">
+ 		<br />
+ 		
+ 		<section id="cd-timeline" class="cd-container">
+ 		<c:forEach var="i" items="${eventList}">
+ 			<div class="cd-timeline-block">
+			<div class="cd-timeline-img cd-movie">
+				<img src="resources/img/cd-icon-location.svg" alt="location">
+			</div> 
+
+			<div class="cd-timeline-content">
+				<h2>${i.eventTitle}</h2>
+				<p>${i.eventDescription}</p>
+				<p>${i.eventTiming}</p>
+				<h2>Contact at: </h2>
+				<p>${i.emailAddress}</p>
+				<p>${i.phoneNumber}</p>
+				<a href="#0" class="cd-read-more">Read more</a>
+				<span class="cd-date">${i.eventDate}</span>
+			</div> 
+		</div> 
+ 		</c:forEach>
+ 		
+
+	</section>
+ 	
+ 	</c:when>
+ 	
+ 	<c:otherwise>
+ 	<div class="form-style-10">
+<h1>Add your advertisement<span>You can post your advertisement here!</span></h1>
+<form:form action="addAdvertisent.htm" commandName="event" method="post" class="form-horizontal" role="form">
+    <div class="section"><span>1</span> Event Details</div>
+    <div class="inner-wrap">
+        <label>Event title<input type="text" name="eventTitle" /></label>
+        <label>Event description <textarea name="eventDescription"></textarea></label>
+        <label>Event date <input type="date" name="eventDate" /></label>
+        <label>Event timings<input type="text" name="eventTiming" /></label>
+    </div>
+
+    <div class="section"><span>2</span>Email &amp; Phone</div>
+    <div class="inner-wrap">
+        <label>Email Address <input type="email" name="emailAddress" /></label>
+        <label>Phone Number <input type="text" name="phoneNumber" /></label>
+    </div>
+    
+    
+    <div class="button-section">
+    <input type="hidden" name="advUserName" value="${sessionScope.personObj.userName}" />
+     <input type="submit" name="Post advertisement" />
+    </div>
+</form:form>
+</div>
+       
+ 	
+ 	</c:otherwise>
+ 
+ </c:choose>
+  
+
+</div>
+
+
+</div>
+
+</div>
+		
+ 
+ 	  
      
  
 	<!--  Scripts -->
@@ -241,8 +339,9 @@
   <script>
     NProgress.done();
   </script>
-  <!-- /datepicker -->
-  <!-- /footer content -->
+  
+  
+ 
 </body>
 
 </html>

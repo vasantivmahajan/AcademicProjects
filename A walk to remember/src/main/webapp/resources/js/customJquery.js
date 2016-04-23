@@ -1,6 +1,7 @@
 $(document).ready(function(){
 	
 	$(".addGoalsForm").css("display", "none");
+
 //	$(".viewGoals").css("display", "none");
 //	
 //    $("#setGoal").click(function(){

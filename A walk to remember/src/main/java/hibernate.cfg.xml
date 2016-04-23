@@ -14,7 +14,7 @@
 
 <!-- 		<mapping class="com.webtools.finalproject.pojo.Admin" /> -->
 		
-<!-- 		<mapping class="com.webtools.finalproject.pojo.Event" /> -->
+
 
 	
 <!-- 		<mapping class="com.webtools.finalproject.pojo.Offers" /> -->
@@ -22,7 +22,8 @@
 		<mapping class="com.webtools.finalproject.pojo.User" />
 		<mapping class="com.webtools.finalproject.pojo.Advertiser" />
 		<mapping class="com.webtools.finalproject.pojo.Memory" />
- 		<mapping class="com.webtools.finalproject.pojo.Goal" />   
+ 		<mapping class="com.webtools.finalproject.pojo.Goal" />
+ 		<mapping class="com.webtools.finalproject.pojo.Event" />  
 
 	</session-factory>
 </hibernate-configuration>
