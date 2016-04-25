@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+ <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +18,11 @@
   <link href="resources/css/bootstrap.min.css" rel="stylesheet">
   <link href="resources/css/formcss.css" rel="stylesheet">
   <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
-
+<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,400italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="resources/css/main.css">
+	<link rel="stylesheet" href="resources/css/reset.css"> <!-- CSS reset -->
+	
+	<script src="resources/js/modernizr.js"></script> <!-- Modernizr -->
 	<link rel="stylesheet" href="resources/css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="resources/css/style.css"> <!-- Resource style -->
 	<script src="resources/js/modernizr.js"></script> <!-- Modernizr -->
@@ -30,7 +35,7 @@
   <link href="resources/css/animate.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/css/normalize.css">
     <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="resources/css/style.css">
+   
 
   <!-- Custom styling plus plugins -->
   <link href="resources/css/custom.css" rel="stylesheet">
@@ -85,7 +90,7 @@
         
                 <li><a><i class="fa fa-bar-chart-o"></i> Manage events <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">Map events to goal</a>
+                    <li><a href="fetchGoal.htm">Map events to goal</a>
                     </li>
                    
                   </ul>
@@ -153,7 +158,59 @@
  <div id="contentWindow" class="right_col" role="main">
  
 	   <c:choose>
-	   	<c:when test="${flag=='goalsFetched'}">
+	   
+	     	<c:when test="${flag=='matchedListObtained'} ">
+	   		 <div id="manageParticipants">
+               
+           <section id="pricing-table">
+            <div class="container">
+                <div class="row">
+                    <div class="pricing">
+                    	
+                    	<c:forEach var="goal" varStatus="length"  items="${goalList}">
+                    	
+                    		<div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
+                                    <p class="pricing-title" id="goalDescription">${goal.goalDescription}</p>
+                                    
+                                    <a href="#" class="btn btn-custom">${goal.user.firstName} ${goal.user.lastName}</a>
+                                </div>
+
+                                <div class="pricing-list">
+                                    <ul>
+                                        <li><i class="fa fa-calendar" aria-hidden="true"></i>Goal Date: ${goal.goalDate}</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>Goal logged: ${goal.loggedTime}</li>
+                                       
+                                    </ul>
+                                    <form:form action="viewMatchingEvents.htm" commandName="goal" method="post" class="form-horizontal" role="form">
+                                     	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" />
+                                     	<input type="submit" id="viewMatchingEvents" type="button" class="btn" value="View matching events" />
+                                	</form:form>
+                                </div>
+                               
+                               <ul>
+                  <c:forEach var="i" items="${matchingEventList}">
+                                	
+                      <li> ${i.eventDescription} </li>
+                                	
+                  </c:forEach>
+           </ul>
+           
+                            </div>
+                        </div>
+                        
+                    	</c:forEach>
+                    </div>
+                </div>
+            </div>
+        </section>
+               
+
+               </div>
+	   	</c:when>
+
+	   	<c:when test="${flag=='goalsFetched' && flag2 ne 'matchedListObtained'}">
 	   	
 	   	
 	   	<section id="portfolio" class="bg-light-gray">
@@ -202,6 +259,54 @@
 	   		
 	   	</c:when>
 	   	
+	   	
+	   	
+	   	<c:when test="${flag=='goalsListFetched'}">
+	   		               
+               <div id="manageParticipants">
+               
+           <section id="pricing-table">
+            <div class="container">
+                <div class="row">
+                    <div class="pricing">
+                    	
+                    	<c:forEach var="goal" varStatus="length"  items="${goalList}">
+                    	
+                    		<div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
+                                    <p class="pricing-title" id="goalDescription">${goal.goalDescription}</p>
+                                    
+                                    <a href="#" class="btn btn-custom">${goal.user.firstName} ${goal.user.lastName}</a>
+                                </div>
+
+                                <div class="pricing-list">
+                                    <ul>
+                                        <li><i class="fa fa-calendar" aria-hidden="true"></i>Goal Date: ${goal.goalDate}</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>Goal logged: ${goal.loggedTime}</li>
+                                       
+                                    </ul>
+                                    <form:form action="viewMatchingEvents.htm" commandName="goal" method="post" class="form-horizontal" role="form">
+                                     	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" />
+                                     	<input type="submit" id="viewMatchingEvents" type="button" class="btn" value="View matching events" />
+                                	</form:form>
+                                </div>
+                               
+                               
+                            </div>
+                        </div>
+                        
+                    	</c:forEach>
+                    </div>
+                </div>
+            </div>
+        </section>
+               
+
+               </div>
+	   	</c:when>
+	
+	   	
 	   	<c:otherwise>
 	   	
 	   	<section id="portfolio" class="bg-light-gray">
@@ -213,8 +318,7 @@
                 </div>
             </div>
            
-           
-           
+            
        <div class="row events">
 		<c:forEach var="e" items="${eventList}">
 
@@ -253,7 +357,14 @@
 	   	</c:otherwise>
 	   </c:choose>
                
+
         </div>
+        
+<!--         <div> -->
+<%--         	<c:forEach var="i" items="${goalList}"> --%>
+<%--         		<h2>the goal description is : ${i.eventTitle}</h2> --%>
+<%--         	</c:forEach> --%>
+<!--         </div> -->
     
 </div>
 
@@ -261,11 +372,33 @@
 </div>
 
  
- 	  
+ <!-- Modal window -->
+  <div class="modal fade" id="viewMatchingEvents" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+  
      
  
 	<!--  Scripts -->
-
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
    <script src="resources/js/bootstrap.min.js"></script>
   <!-- daterangepicker -->
 <!--   <script type="text/javascript" src="resources/js/moment/moment.min.js"></script> -->
@@ -274,85 +407,97 @@
   <script src="resources/js/custom.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  <!-- datepicker -->
- <script type="text/javascript"> 
-    $(document).ready(function() {
+<!--   <!-- datepicker --> -->
+<!--  <script type="text/javascript">  -->
+<!-- //     $(document).ready(function() { -->
 
-      var cb = function(start, end, label) {
-        console.log(start.toISOString(), end.toISOString(), label);
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-      }
+<!-- //       var cb = function(start, end, label) { -->
+<!-- //         console.log(start.toISOString(), end.toISOString(), label); -->
+<!-- //         $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY')); -->
+<!-- //         //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]"); -->
+<!-- //       } -->
 
-      var optionSet1 = {
-        startDate: moment().subtract(29, 'days'),
-        endDate: moment(),
-        minDate: '01/01/2012',
-        maxDate: '12/31/2015',
-        dateLimit: {
-          days: 60
-        },
-        showDropdowns: true,
-        showWeekNumbers: true,
-        timePicker: false,
-        timePickerIncrement: 1,
-        timePicker12Hour: true,
-        ranges: {
-          'Today': [moment(), moment()],
-          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        },
-        opens: 'left',
-        buttonClasses: ['btn btn-default'],
-        applyClass: 'btn-small btn-primary',
-        cancelClass: 'btn-small',
-        format: 'MM/DD/YYYY',
-        separator: ' to ',
-        locale: {
-          applyLabel: 'Submit',
-          cancelLabel: 'Clear',
-          fromLabel: 'From',
-          toLabel: 'To',
-          customRangeLabel: 'Custom',
-          daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-          monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-          firstDay: 1
-        }
-      };
-      $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-      $('#reportrange').daterangepicker(optionSet1, cb);
-      $('#reportrange').on('show.daterangepicker', function() {
-        console.log("show event fired");
-      });
-      $('#reportrange').on('hide.daterangepicker', function() {
-        console.log("hide event fired");
-      });
-      $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-        console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-      });
-      $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-        console.log("cancel event fired");
-      });
-      $('#options1').click(function() {
-        $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-      });
-      $('#options2').click(function() {
-        $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-      });
-      $('#destroy').click(function() {
-        $('#reportrange').data('daterangepicker').remove();
-      });
-    });
-   </script> 
+<!-- //       var optionSet1 = { -->
+<!-- //         startDate: moment().subtract(29, 'days'), -->
+<!-- //         endDate: moment(), -->
+<!-- //         minDate: '01/01/2012', -->
+<!-- //         maxDate: '12/31/2015', -->
+<!-- //         dateLimit: { -->
+<!-- //           days: 60 -->
+<!-- //         }, -->
+<!-- //         showDropdowns: true, -->
+<!-- //         showWeekNumbers: true, -->
+<!-- //         timePicker: false, -->
+<!-- //         timePickerIncrement: 1, -->
+<!-- //         timePicker12Hour: true, -->
+<!-- //         ranges: { -->
+<!-- //           'Today': [moment(), moment()], -->
+<!-- //           'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')], -->
+<!-- //           'Last 7 Days': [moment().subtract(6, 'days'), moment()], -->
+<!-- //           'Last 30 Days': [moment().subtract(29, 'days'), moment()], -->
+<!-- //           'This Month': [moment().startOf('month'), moment().endOf('month')], -->
+<!-- //           'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')] -->
+<!-- //         }, -->
+<!-- //         opens: 'left', -->
+<!-- //         buttonClasses: ['btn btn-default'], -->
+<!-- //         applyClass: 'btn-small btn-primary', -->
+<!-- //         cancelClass: 'btn-small', -->
+<!-- //         format: 'MM/DD/YYYY', -->
+<!-- //         separator: ' to ', -->
+<!-- //         locale: { -->
+<!-- //           applyLabel: 'Submit', -->
+<!-- //           cancelLabel: 'Clear', -->
+<!-- //           fromLabel: 'From', -->
+<!-- //           toLabel: 'To', -->
+<!-- //           customRangeLabel: 'Custom', -->
+<!-- //           daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'], -->
+<!-- //           monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'], -->
+<!-- //           firstDay: 1 -->
+<!-- //         } -->
+<!-- //       }; -->
+<!-- //       $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY')); -->
+<!-- //       $('#reportrange').daterangepicker(optionSet1, cb); -->
+<!-- //       $('#reportrange').on('show.daterangepicker', function() { -->
+<!-- //         console.log("show event fired"); -->
+<!-- //       }); -->
+<!-- //       $('#reportrange').on('hide.daterangepicker', function() { -->
+<!-- //         console.log("hide event fired"); -->
+<!-- //       }); -->
+<!-- //       $('#reportrange').on('apply.daterangepicker', function(ev, picker) { -->
+<!-- //         console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY')); -->
+<!-- //       }); -->
+<!-- //       $('#reportrange').on('cancel.daterangepicker', function(ev, picker) { -->
+<!-- //         console.log("cancel event fired"); -->
+<!-- //       }); -->
+<!-- //       $('#options1').click(function() { -->
+<!-- //         $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb); -->
+<!-- //       }); -->
+<!-- //       $('#options2').click(function() { -->
+<!-- //         $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb); -->
+<!-- //       }); -->
+<!-- //       $('#destroy').click(function() { -->
+<!-- //         $('#reportrange').data('daterangepicker').remove(); -->
+<!-- //       }); -->
+<!-- //     }); -->
+<!--    </script>  -->
   <script>
     NProgress.done();
   </script>
   
+  <script src="resources/js/jquery-2.1.4.js"></script>
+<script src="resources/js/jquery.mobile.custom.min.js"></script>
+<script src="resources/js/main.js"></script> 
   
+ <style>
  
+#viewMatchingEvents
+{
+	background-color: #34495E;
+	color:white;
+	margin-left: 22%;
+	margin-top: 5%;
+}
+ </style>
 </body>
 
 </html>

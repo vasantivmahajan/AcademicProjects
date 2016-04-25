@@ -11,9 +11,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Field; 
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Store;  
 
 @Entity
 @Table(name="GOAL")
+@Indexed
 public class Goal {
 
 	@Id
@@ -21,6 +27,7 @@ public class Goal {
 	@Column(name="goalId",unique=true, nullable = false)
 	private int goalId;
 	
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name="goalDescription")
 	private String goalDescription;
 	

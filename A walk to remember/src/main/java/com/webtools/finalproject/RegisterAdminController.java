@@ -25,7 +25,6 @@ import com.webtools.finalproject.pojo.User;
 
 
 @Controller
-@RequestMapping("/registerAdmin.htm")
 public class RegisterAdminController {
 	
 	@RequestMapping(value="/registerAdmin.htm",method = RequestMethod.POST)
@@ -38,7 +37,7 @@ public class RegisterAdminController {
 			
 			adminDao.create(admin.getFirstName(),admin.getLastName(),admin.getPassword(),admin.getUserName());
 			List<Event> events=adminDao.fetchAllEvents();
-			System.out.println("The size of the eventlist is "+events.size());
+			//System.out.println("The size of the eventlist is "+events.size());
 //			List<Goal> goals=adminDao.fetchAllGoals();
 //			System.out.println("The size of the goallist is "+goals.size());
 			mv.setViewName("admintimeline");
@@ -60,6 +59,21 @@ public class RegisterAdminController {
 	public String initializeForm(@ModelAttribute("admin") Admin admin) {
 
 		return "home";
+	}
+	
+	@RequestMapping(value="/manageParticipant.htm",method = RequestMethod.POST)
+	public ModelAndView findTheGoals(@ModelAttribute("goal") Goal goal)
+	{
+		AdminDAO adminDao = new AdminDAO();
+		List goalList=adminDao.fetchAllGoalsUsingSearchString(goal.getGoalDescription());
+		//System.out.println("My search list is "+goalList);
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("goalList", goalList);
+		String flag="searchResultsFetched";
+		mv.addObject("flag", flag);
+		mv.setViewName("admintimeline");
+		return mv;
+		
 	}
 
 }

@@ -13,9 +13,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
+
 
 @Entity
 @Table(name="EVENT")
+@Indexed
 public class Event {
 
 	@Id
@@ -23,9 +30,11 @@ public class Event {
 	@Column(name="eventId",unique=true, nullable = false)
 	private int eventId;
 	
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name="eventTitle")
 	private String eventTitle;
 	
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	@Column(name="eventDescription")
 	private String eventDescription;
 	 

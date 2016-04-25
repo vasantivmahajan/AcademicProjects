@@ -2,7 +2,19 @@ package com.webtools.finalproject.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.search.FullTextSession;
+//import org.hibernate.search.FullTextSession;
+//import org.hibernate.search.jpa.FullTextEntityManager;
+//import org.hibernate.search.jpa.Search;
+//import org.hibernate.search.query.dsl.QueryBuilder;
+import org.hibernate.search.Search;
+import org.hibernate.search.query.dsl.QueryBuilder;
 
 import com.webtools.finalproject.pojo.Admin;
 import com.webtools.finalproject.pojo.Advertiser;
@@ -81,8 +93,50 @@ public class AdminDAO extends DAO {
         
     	
     }
+    
+    public List fetchAllGoalsUsingSearchString(String goalDescription)
+    {
+    	System.out.println("Hi I have reached the DAO");
+    	Session session = getSession();
+    	FullTextSession fullTextSession = Search.getFullTextSession(session);
+    	
+    	try {
+			fullTextSession.createIndexer().startAndWait();
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+    	
+    	try {
+			fullTextSession.createIndexer().startAndWait();
+			QueryBuilder qb = fullTextSession.getSearchFactory()
+				    .buildQueryBuilder().forEntity( Event.class ).get();
+				org.apache.lucene.search.Query query = qb.keyword().onFields("eventTitle").matching(goalDescription).createQuery();
+				org.hibernate.Query hibQuery = fullTextSession.createFullTextQuery(query, Event.class);
+				
+				List result = hibQuery.list();
+				System.out.println(result.size());
+//				commit();
+				
+				return result;
+				
+
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+
+		}
+		
+    }
 
 
+
+	private void createQuery() {
+		// TODO Auto-generated method stub
+		
+	}
 
 
 }
+

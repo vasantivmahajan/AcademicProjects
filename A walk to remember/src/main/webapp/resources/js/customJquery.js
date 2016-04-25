@@ -2,17 +2,6 @@ $(document).ready(function(){
 	
 	$(".addGoalsForm").css("display", "none");
 
-//	$(".viewGoals").css("display", "none");
-//	
-//    $("#setGoal").click(function(){
-//    	
-//        $(".list").fadeOut(500);
-//        $(".events").fadeOut(500);
-//        $(".myTimeline").fadeIn(1000);
-//        
-//        
-//    });
-    
     $("#setGoal").click(function(){
     	
     	$(".memoriesTimeline").fadeOut(1000);
@@ -31,8 +20,41 @@ $(document).ready(function(){
     
     
     $("#viewGoals").click(function(){
-    	alert("I am called");
+    	
     	$(".goalsTimeline").fadeIn(1000);
     	$(".memoriesTimeline").fadeOut(1000);
     });
+    
+//    $("#viewMatchingEvents").click(function()
+//    {
+//    	alert("hi");
+//    	var data = {}
+//		data["goalDescription"] = $("#goalDescription").html();
+//		alert(data);
+//		$.ajax({
+//			
+//			type : "POST",
+//			contentType : "application/json",
+//			url : "fetchResults.htm",
+//			data : JSON.stringify(data),
+//			dataType : 'json',
+//			timeout : 100000,
+//			success : function(data) {
+//				alert("success");
+//				console.log("SUCCESS: ", data);
+//				display(data);
+//			},
+//			error : function(e) {
+//				alert("error"+e.status);
+//				console.log("ERROR: ", e);
+//				
+//			},
+//			done : function(e) {
+//				console.log("DONE");
+//			}
+//    	
+//		});
+//    
+//    });
+   
 });
