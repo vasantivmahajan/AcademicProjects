@@ -92,8 +92,8 @@ public class AdminController {
 	}
 
 	
-//	@RequestMapping(value = "fetchResults.htm",method = RequestMethod.POST, produces="application/json")
-//	public @ResponseBody List<Event> getSearchResultViaAjax(@RequestBody Goal goal ) {
+//	@RequestMapping(value = "fetchResults.htm", method = RequestMethod.POST, produces="application/json")
+//	public @ResponseBody Event getSearchResultViaAjax(@RequestBody Goal goal ) {
 //		System.out.println("I have reached the controller");
 //		
 //		try {
@@ -104,7 +104,7 @@ public class AdminController {
 //		
 //		System.out.println("I have received the list "+eventList.size());
 //
-//		return eventList;
+//		return eventList.get(0);
 //		}
 //		
 //		
@@ -115,7 +115,7 @@ public class AdminController {
 //	
 //
 //	}
-	
+//	
 	
 	@RequestMapping(value="/viewMatchingEvents.htm",method = RequestMethod.POST)
 	protected ModelAndView getEventResults(HttpServletRequest request)
@@ -125,13 +125,18 @@ public class AdminController {
 			   
 			AdminDAO adminDao=new AdminDAO();
 			String goalDescription=request.getParameter("goalDescription");
+			String goalUser=request.getParameter("goalUser");
+			String goalDate=request.getParameter("goalDate");
+			System.out.println("The goal user is "+goalUser);
 			List<Event> eventList=adminDao.fetchAllGoalsUsingSearchString(goalDescription);
-			System.out.println("The size of the goallist is "+eventList.size());
+			//System.out.println("The size of the eventlist is "+eventList.size());
 			List<Goal> goals=adminDao.fetchAllGoals();
 			mv.addObject("goalList", goals);
 			mv.addObject("matchingEventList", eventList);
 			String flag="matchedListObtained";
 			mv.addObject("flag", flag);
+			mv.addObject("goalUser", goalUser);
+			mv.addObject("goalDate", goalDate);
 //			String flag2="matchedListObtained";
 //			mv.addObject("flag2", flag2);
 			mv.setViewName("admintimeline");
@@ -143,6 +148,22 @@ public class AdminController {
 			mv.setViewName("error");
 			
 			return mv;
+		}
+	}
+	
+	
+	@RequestMapping(value="/addToUsersEventList.htm",method = RequestMethod.POST)
+	protected void addEventToUsersList(HttpServletRequest request)
+	{
+		try {
+			   
+			AdminDAO adminDao=new AdminDAO();
+			User user=adminDao.getUser(request.getParameter("userLastName"));
+		    
+		} 
+		catch (Exception e) {
+			e.printStackTrace();
+
 		}
 	}
 }

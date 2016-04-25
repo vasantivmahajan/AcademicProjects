@@ -2,6 +2,7 @@ package com.webtools.finalproject.pojo;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -54,6 +55,22 @@ public class Event {
 	@JoinColumn(name = "personId")
 	private Advertiser advertiser;
 	
+//	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
+//	@JoinColumn(name = "personId")
+//	private Set<User> userSet;
+//	
+//	
+//
+//	public Set<User> getUserSet() {
+//		return userSet;
+//	}
+//
+//
+//	public void setUserSet(Set<User> userSet) {
+//		this.userSet = userSet;
+//	}
+
+
 	public String getEventDate() {
 		return eventDate;
 	}

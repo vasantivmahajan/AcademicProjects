@@ -131,6 +131,25 @@ public class AdminDAO extends DAO {
     }
 
 
+    
+    public User getUser(String userLastName)
+    {
+    	try {
+            begin();
+            Query q = getSession().createQuery("from User where lastName =:lastName");
+            q.setString("lastName", userLastName);
+            User user=(User)q.uniqueResult();
+            commit();
+            return user;
+        } 
+        catch (Exception e) {
+            rollback();
+            e.printStackTrace();
+            return null;
+        }
+        
+    	
+    }
 
 	private void createQuery() {
 		// TODO Auto-generated method stub

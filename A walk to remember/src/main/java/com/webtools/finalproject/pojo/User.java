@@ -39,6 +39,17 @@ public class User extends Person{
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL, mappedBy="user")
 	private List<Goal> goalList;
 	
+	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL, mappedBy="user")
+	private List<Event> eventList;
+	
+	public List<Event> getEventList() {
+		return eventList;
+	}
+
+	public void setEventList(List<Event> eventList) {
+		this.eventList = eventList;
+	}
+
 	public User()
 	{}
 	

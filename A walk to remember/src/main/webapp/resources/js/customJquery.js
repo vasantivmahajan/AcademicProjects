@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	
+//	alert("hi I am in main");
 	$(".addGoalsForm").css("display", "none");
 
     $("#setGoal").click(function(){
@@ -39,6 +39,7 @@ $(document).ready(function(){
 //			data : JSON.stringify(data),
 //			dataType : 'json',
 //			timeout : 100000,
+//			async: false,
 //			success : function(data) {
 //				alert("success");
 //				console.log("SUCCESS: ", data);

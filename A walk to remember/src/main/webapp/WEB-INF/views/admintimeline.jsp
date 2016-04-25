@@ -156,62 +156,11 @@
         </div>
 	</div>
  <div id="contentWindow" class="right_col" role="main">
- 
+
 	   <c:choose>
 	   
-	     	<c:when test="${flag=='matchedListObtained'} ">
-	   		 <div id="manageParticipants">
-               
-           <section id="pricing-table">
-            <div class="container">
-                <div class="row">
-                    <div class="pricing">
-                    	
-                    	<c:forEach var="goal" varStatus="length"  items="${goalList}">
-                    	
-                    		<div class="col-md-4 col-sm-12 col-xs-12">
-                            <div class="pricing-table">
-                                <div class="pricing-header">
-                                    <p class="pricing-title" id="goalDescription">${goal.goalDescription}</p>
-                                    
-                                    <a href="#" class="btn btn-custom">${goal.user.firstName} ${goal.user.lastName}</a>
-                                </div>
 
-                                <div class="pricing-list">
-                                    <ul>
-                                        <li><i class="fa fa-calendar" aria-hidden="true"></i>Goal Date: ${goal.goalDate}</li>
-                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>Goal logged: ${goal.loggedTime}</li>
-                                       
-                                    </ul>
-                                    <form:form action="viewMatchingEvents.htm" commandName="goal" method="post" class="form-horizontal" role="form">
-                                     	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" />
-                                     	<input type="submit" id="viewMatchingEvents" type="button" class="btn" value="View matching events" />
-                                	</form:form>
-                                </div>
-                               
-                               <ul>
-                  <c:forEach var="i" items="${matchingEventList}">
-                                	
-                      <li> ${i.eventDescription} </li>
-                                	
-                  </c:forEach>
-           </ul>
-           
-                            </div>
-                        </div>
-                        
-                    	</c:forEach>
-                    </div>
-                </div>
-            </div>
-        </section>
-               
-
-               </div>
-	   	</c:when>
-
-	   	<c:when test="${flag=='goalsFetched' && flag2 ne 'matchedListObtained'}">
-	   	
+	   	<c:when test="${flag=='goalsFetched'}">
 	   	
 	   	<section id="portfolio" class="bg-light-gray">
         <div class="container">
@@ -262,7 +211,7 @@
 	   	
 	   	
 	   	<c:when test="${flag=='goalsListFetched'}">
-	   		               
+	   		        
                <div id="manageParticipants">
                
            <section id="pricing-table">
@@ -286,9 +235,21 @@
                                         <li><i class="fa fa-clock-o" aria-hidden="true"></i>Goal logged: ${goal.loggedTime}</li>
                                        
                                     </ul>
+                                    
+<!--                                     <button type="button" id="viewMatchingEvents" class="btn" >View matching events</button> -->
+                                    
+<!--                                     <ul> -->
+<%--                   <c:forEach var="i" items="${matchingEventList}"> --%>
+                                	
+<%--                       <li> ${i.eventDescription} </li> --%>
+                                	
+<%--                   </c:forEach> --%>
+           </ul>
                                     <form:form action="viewMatchingEvents.htm" commandName="goal" method="post" class="form-horizontal" role="form">
-                                     	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" />
-                                     	<input type="submit" id="viewMatchingEvents" type="button" class="btn" value="View matching events" />
+                                      	<input type="hidden" name="goalUser" value="${goal.user.lastName}" />
+                                      	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" /> 
+                                      	<input type="hidden" name="goalDate" value="${goal.goalDate}"/>
+                                      	<input type="submit" id="viewMatchingEvents" class="btn" value="View matching events" /> 
                                 	</form:form>
                                 </div>
                                
@@ -305,10 +266,77 @@
 
                </div>
 	   	</c:when>
+	   	
+	   	<c:when test="${flag eq 'matchedListObtained'}">
+	     	
+	   		 <div id="manageParticipants">
+               
+           <section id="pricing-table">
+            <div class="container">
+                <div class="row">
+                    <div class="pricing">
+                    	
+                    	<c:forEach var="goal" varStatus="length"  items="${goalList}">
+                    	
+                    		<div class="col-md-4 col-sm-12 col-xs-12">
+                            <div class="pricing-table">
+                                <div class="pricing-header">
+                                    <p class="pricing-title" id="goalDescription">${goal.goalDescription}</p>
+                                    
+                                    <a href="#" class="btn btn-custom">${goal.user.firstName} ${goal.user.lastName}</a>
+                                </div>
+
+                                <div class="pricing-list">
+                                    <ul>
+                                        <li><i class="fa fa-calendar" aria-hidden="true"></i>Goal Date: ${goal.goalDate}</li>
+                                        <li><i class="fa fa-clock-o" aria-hidden="true"></i>Goal logged: ${goal.loggedTime}</li>
+                                       
+                                    </ul>
+                                    
+                                    <form:form action="viewMatchingEvents.htm" commandName="goal" method="post" class="form-horizontal" role="form">
+                                     	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" />
+                                     	<input type="hidden" name="goalUser" value="${goal.user.lastName}" />
+                                     	<input type="hidden" name="goalDate" value="${goal.goalDate}"/>
+                                     	<input type="submit" id="viewMatchingEvents" type="button" class="btn" value="View matching events" />
+                                	</form:form>
+                                </div>
+                               
+                               	
+                               	 <c:if test="${goal.user.lastName eq goalUser && goal.goalDate eq goalDate}">
+                            	<br />
+                               	   <div class="pricing-header">
+                                  
+                               	 <ul>
+                               	 <li class="pricing-title" > Most suitable events </li>
+                               	 <c:forEach var="i" items="${matchingEventList}">
+                                		<form action="addToUsersEventList.htm" method='post'>
+                                			<input type="hidden" name="userLastName" value="${goal.user.lastName}" />
+                     					   <a href="#" class="btn btn-custom">${i.eventDescription} <i class="fa fa-thumb-tack" aria-hidden="true"></i> </a>
+                     					</form>
+                                	
+                 					 </c:forEach>
+          						 </ul>	
+          						 
+          						 </div>
+                               	 </c:if>
+                 					 
+           
+                            </div>
+                        </div>
+                        
+                    	</c:forEach>
+                    </div>
+                </div>
+            </div>
+        </section>
+               
+
+               </div>
+	   	</c:when>
 	
 	   	
 	   	<c:otherwise>
-	   	
+	   
 	   	<section id="portfolio" class="bg-light-gray">
         <div class="container">
             <div class="row">
@@ -497,6 +525,8 @@
 	margin-left: 22%;
 	margin-top: 5%;
 }
+
+
  </style>
 </body>
 
