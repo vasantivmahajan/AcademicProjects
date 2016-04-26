@@ -152,28 +152,45 @@ catch (Exception e) {
     	
     }
     
-    public String sendResponseToAdvertiser(int value)
+    public String sendResponseToAdvertiser(int eventId, long userID)
     {
     	try {
     		
             begin();
-            Query q = getSession().createQuery("from Event where eventId=:value");
-            q.setParameter("value",value);
-            Event event=(Event)q.uniqueResult();
-            System.out.println("The status is "+event.getUserStatus());
-            if(event.getUserStatus().equalsIgnoreCase("No Response"))
+            Query q = getSession().createQuery("from User where personID=:value");
+            q.setParameter("value",userID);
+            User user=(User)q.uniqueResult();
+            List<Event> usersEventList= user.getEventList();
+            System.out.println("The users event list size is "+usersEventList.size());
+            String flag = null;
+            for(int i=0;i<usersEventList.size();i++)
             {
-            	event.setUserStatus("Accepted");
-                getSession().merge(event);
-                commit(); 
-                return "sendToAdvertiser";
+            	if(usersEventList.get(i).getEventId()==eventId)
+            	{
+            		if(usersEventList.get(i).getUserStatus().equalsIgnoreCase("No Response"))
+            		{
+            			usersEventList.get(i).setUserStatus("Accepted");
+            			 getSession().merge(user);
+            			 commit();
+            			 
+            			 flag= "sendToAdvertiser";
+            		}
+            		
+            		else if(usersEventList.get(i).getUserStatus().equalsIgnoreCase("Accepted"))
+            		{
+            			flag= "alreadyAccepted";
+            		}
+            		
+            		 else 
+                     {
+                     	
+                     	flag= null;
+                     }
+            		
+            	}
             }
-            else
-            {
-            	return "alreadyAccepted";
-            	
-            }
-            
+            return flag;
+              
              
         } 
         catch (Exception e) {
@@ -183,6 +200,46 @@ catch (Exception e) {
             return null;
         }
     	
+    	
+    }
+    
+    public void deleteEvent(int eventNumber, long userId)
+    {
+    	
+try {
+    		
+            begin();
+//            Query q = getSession().createQuery("from Event where eventId=:value");
+//            q.setParameter("value",eventNumber);
+//            Event event=(Event)q.uniqueResult();
+            
+//            System.out.println("The event is "+event.getEventDescription());
+            Query q1 = getSession().createQuery("from User where personID=:userId");
+            q1.setParameter("userId",userId);
+            User user=(User)q1.uniqueResult();
+            System.out.println("The fetched user is "+user.getFirstName());
+            List<Event> usersEventList= user.getEventList();
+            System.out.println("The users event list size is "+usersEventList.size());
+            for(int i=0;i<usersEventList.size();i++)
+            {
+            	if(usersEventList.get(i).getEventId()==eventNumber)
+            	{
+            		usersEventList.get(i).setUserStatus("Declined");
+            		
+            	}
+            }
+            
+            getSession().merge(user);
+            commit();
+            
+             
+        } 
+        catch (Exception e) {
+            rollback();
+            
+            e.printStackTrace();
+//            return null;
+        }
     	
     }
 

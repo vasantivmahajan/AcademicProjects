@@ -225,6 +225,7 @@
               
               <a href="#" id="acceptEvent"><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i></a> 
               <a href="#" id="deleteEvent"><i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i> </a>  <br /> 
+              <input type="hidden" id="uObj" name="userObject" value="${sessionScope.userObj.personID}">
               <p class="text-muted">Rate this event: </p> 
               <i class="fa fa-star-o fa-lg" aria-hidden="true" ></i> <i class="fa fa-star-o fa-lg" aria-hidden="true"></i> 
               <i class="fa fa-star-o fa-lg" aria-hidden="true"></i> <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>

@@ -75,7 +75,7 @@ public class Event {
 	}
 
 
-	@ManyToMany(cascade=CascadeType.ALL)  
+	@ManyToMany(cascade=CascadeType.ALL, fetch=FetchType.EAGER)  
     @JoinTable(name="user_events", joinColumns=@JoinColumn(name="event_id"), inverseJoinColumns=@JoinColumn(name="user_id"))  
 	private Set<User> userSet;
 	

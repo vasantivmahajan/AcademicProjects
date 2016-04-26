@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.webtools.finalproject.dao.AdvertiserDAO;
 import com.webtools.finalproject.dao.EventDAO;
 import com.webtools.finalproject.dao.MemoryDAO;
 import com.webtools.finalproject.dao.UserDAO;
@@ -75,6 +76,27 @@ public class AdvertiserController {
 		mv.addObject("flag", flag);
 		return mv;
 		
+	}
+	
+	@RequestMapping(value="/fetchAdvertiser.htm", method = RequestMethod.GET)
+	public ModelAndView fetchParticipants(HttpServletRequest request)
+	{
+		try {
+		AdvertiserDAO advDao=new AdvertiserDAO();
+		String advFN=request.getParameter("advFirstName");
+		Advertiser adv=advDao.getAdvertiser(advFN);
+		String flag="participantsViewed";
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("advertiser", adv);
+		mv.addObject("flag", flag);
+		mv.setViewName("advtimeline");
+		return mv;
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 }

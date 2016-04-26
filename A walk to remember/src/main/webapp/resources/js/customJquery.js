@@ -29,13 +29,12 @@ $(document).ready(function(){
     $("#acceptEvent").click(function(){
     	
     	var data=$(".eventId");
-    	console.log(data);
-    	
+    	var userObject=$("#uObj");
     	$.ajax({
 			
 			type:"POST",
 			url:"acceptEvent.htm",
-			data: {eventId:$(".eventId").html()},
+			data: {eventId:$(".eventId").html(),userId:$("#uObj").val()},
 			success : function(result){
 //				alert(result);
 				if(result=="success")
@@ -62,10 +61,47 @@ $(document).ready(function(){
 			
 		});
     	
+    });
+    
+$("#deleteEvent").click(function(){
+    	
+    	var data=$(".eventId");
+    	var userObject=$("#uObj");
+    	
+    	$.ajax({
+			
+			type:"POST",
+			url:"deleteEvent.htm",
+			data: {eventId:$(".eventId").html(),userId:$("#uObj").val()},
+			success : function(result){
+//				alert(result);
+				if(result=="declined")
+					{
+//						alert($(".successMessage").attr("class"));
+						$(".successMessage").text("You have removed this event from your list");
+						$("#deleteEvent").remove();
+						$("#acceptEvent").remove();
+	
+					}
+//				
+//				else if(result=="alreadyAccepted")
+//					{
+//					$(".successMessage").text("You have already accepted the event");
+//					$("#acceptEvent").remove();
+//					}
+				
+			},
+			error: function(jqXHR){
+				alert("Problem occured while completed adventure process" + jqXHR.status);
+			}
+			
+		});
+    	
     	
     	
     	
     	
     });
+
 
 });

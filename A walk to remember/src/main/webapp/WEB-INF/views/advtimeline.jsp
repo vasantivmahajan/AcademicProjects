@@ -94,7 +94,13 @@
                 </li>
                  <li><a><i class="fa fa-bar-chart-o"></i> Participants <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">View participants</a>
+                    <li>
+                     
+                    <a href="fetchAdvertiser.htm?advFirstName=${sessionScope.personObj.firstName}">View participants</a>
+                   
+                   
+                   
+                 
                     </li>
                     
                   </ul>
@@ -180,6 +186,39 @@
 
 	</section>
     
+ 	</c:when>
+ 	
+ 	<c:when test="${flag eq 'participantsViewed'}">
+ 		<table class="table table-striped table-bordered">
+    		<thead>
+      			<tr>
+        			<th>User Name</th>
+        			<th>Event Id</th>
+        			<th>Event Title</th>
+        			<th>Event Date</th>
+        			<th>User's Status</th>
+      			</tr>
+    	 </thead>
+    	<tbody>
+    		<c:forEach var="event" items="${advertiser.eventSet}">
+    			 
+    			 <c:forEach var="user" items="${event.userSet}">
+    			 	<tr class="eventRow">
+       				 	<td>${user.firstName} ${user.lastName}</td>
+       				 	<td>${event.eventId}</td>
+       				 	<td>${event.eventTitle}</td>
+  				     	<td>${event.eventDate}</td>
+  				     	<td>${event.userStatus}</td>
+     			 	</tr>
+      
+    			 </c:forEach>
+    			 
+    		</c:forEach>
+    		
+    		
+     			
+    	</tbody>
+  	</table>
  	</c:when>
 
  	<c:when test="${flag=='fetchEvents'}">

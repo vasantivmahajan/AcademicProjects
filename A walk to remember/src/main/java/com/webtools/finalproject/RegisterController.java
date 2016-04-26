@@ -1,5 +1,6 @@
 package com.webtools.finalproject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -125,9 +126,18 @@ public class RegisterController {
 			HttpSession session=request.getSession();
 			User user=(User) session.getAttribute("userObj");
 			List<Event> eventList=userDao.fetchUserEventList(user);
+			
+			List<Event> tempList=new ArrayList<Event>();
+			for(int i=0;i<eventList.size();i++)
+			{
+				if(eventList.get(i).getUserStatus().equalsIgnoreCase("No Response") || eventList.get(i).getUserStatus().equalsIgnoreCase("Accepted"))
+				{
+					tempList.add(eventList.get(i));
+				}
+			}
 			String flag="eventListReceived";
 			ModelAndView mv=new ModelAndView();
-			mv.addObject("eventlist", eventList);
+			mv.addObject("eventlist", tempList);
 			mv.addObject("flag", flag);
 			mv.setViewName("timeline");
 			return mv;
@@ -141,15 +151,16 @@ public class RegisterController {
 	
 
 	@RequestMapping(value = "/acceptEvent.htm", method = RequestMethod.POST)
-	protected @ResponseBody String acceptEvent(@RequestParam("eventId") String eventId)
+	protected @ResponseBody String acceptEvent(@RequestParam("eventId") String eventId, @RequestParam("userId") String userId)
 	{
 		try {
-		//	System.out.println("Hi I am in controller");
+		
 			UserDAO userDao = new UserDAO();
 			String[] evntId=eventId.split(":");
 			
 			int eventNumber=Integer.parseInt(evntId[1]);
-			String status=userDao.sendResponseToAdvertiser(eventNumber);
+			long userID=Long.parseLong(userId);
+			String status=userDao.sendResponseToAdvertiser(eventNumber, userID);
 			if(status.equalsIgnoreCase("alreadyAccepted"))
 			{
 				return "alreadyAccepted";
@@ -170,8 +181,42 @@ public class RegisterController {
 			System.out.println("Exception: " + e.getMessage());
 			return null;
 		}
-
-		
+	
+	}
+	
+	@RequestMapping(value = "/deleteEvent.htm", method = RequestMethod.POST)
+	protected @ResponseBody String deleteEvent(@RequestParam("eventId") String eventId, @RequestParam("userId") String userId)
+	{
+		try {
+		//	System.out.println("Hi I am in controller");
+			UserDAO userDao = new UserDAO();
+			String[] evntId=eventId.split(":");
+			
+			int eventNumber=Integer.parseInt(evntId[1]);
+			long userID=Long.parseLong(userId);
+			userDao.deleteEvent(eventNumber, userID);
+			return "declined";
+//			if(status.equalsIgnoreCase("alreadyAccepted"))
+//			{
+//				return "alreadyAccepted";
+//				
+//			}
+//			else if(status.equalsIgnoreCase("sendToAdvertiser"))
+//			{
+//				return "success";
+//			}
+//			 
+//			else
+//			{
+//				return null;
+//			}
+//			
+			
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			return null;
+		}
+	
 	}
 	
 	

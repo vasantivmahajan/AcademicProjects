@@ -41,7 +41,7 @@ public class User extends Person{
 	private List<Goal> goalList;
 	
 	//@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
-	@ManyToMany(cascade=CascadeType.ALL, mappedBy="userSet") 
+	@ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER, mappedBy="userSet") 
 	private List<Event> eventList;
 	
 	 
