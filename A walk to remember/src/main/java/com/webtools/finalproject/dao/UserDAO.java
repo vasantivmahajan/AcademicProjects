@@ -105,6 +105,38 @@ catch (Exception e) {
         
     }
     
+    public String checkUserName(String userName)
+    {
+    	try {
+            begin();
+            
+            Query q = getSession().createQuery("from Person where userName =:userName");
+            q.setParameter("userName",userName);
+            Person p=(Person)q.uniqueResult();
+            commit();
+            if(p!=null)
+            {
+            	return "notUnique";
+            	
+            }
+            
+            else
+            {
+            	return "unique";
+            	
+            }
+           
+            
+        } 
+        catch (Exception e) {
+            rollback();
+            
+            e.printStackTrace();
+            return null;
+        }
+    	
+    }
+    
     public User getUser(long personId)
     {
     	try {

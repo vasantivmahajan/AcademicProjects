@@ -53,6 +53,81 @@ public class RegisterController {
 	}
 	
 	
+//	@RequestMapping(value = "/login.htm", method = RequestMethod.POST)
+//	protected @ResponseBody String login(@RequestParam("userName") String userName, @RequestParam("password") String password)
+//	{
+//		try {
+//		
+//			UserDAO userDao=new UserDAO();
+//			Person person=userDao.checkLogin(userName, password);
+//			if(person!=null)
+//			{
+//				return "validCredentials";
+//			}
+//			else
+//			{
+//				return "invalidCredentials";
+//			}
+//			
+//		} catch (Exception e) {
+//			System.out.println("Exception: " + e.getMessage());
+//			return null;
+//		}
+//	
+//	}
+	
+	@RequestMapping(value = "/checkValidAdvName.htm", method = RequestMethod.POST)
+	protected @ResponseBody String checkValidAdvName(@RequestParam("userName") String userName)
+	{
+		try {
+		
+			UserDAO userDao = new UserDAO();
+			String status=userDao.checkUserName(userName);
+			if(status.equalsIgnoreCase("notUnique"))
+			{
+				return "notUnique";
+				
+			}
+			else 
+			{
+				return "unique";
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			return null;
+		}
+	
+	}
+	
+	
+	@RequestMapping(value = "/checkValidUserName.htm", method = RequestMethod.POST)
+	protected @ResponseBody String checkValidUserName(@RequestParam("userName") String userName)
+	{
+		try {
+		
+			UserDAO userDao = new UserDAO();
+			String status=userDao.checkUserName(userName);
+			if(status.equalsIgnoreCase("notUnique"))
+			{
+				return "notUnique";
+				
+			}
+			else 
+			{
+				return "unique";
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			return null;
+		}
+	
+	}
+	
+	
 	@RequestMapping(value="/login.htm",method = RequestMethod.POST)
 	protected ModelAndView login(@ModelAttribute("person") Person person, HttpServletRequest request,
             HttpServletResponse response) throws Exception {
@@ -63,8 +138,6 @@ public class RegisterController {
 			AdminDAO adminDao=new AdminDAO();
 			
 			HttpSession sessionObj = request.getSession();
-//			System.out.println("Person details"+person.getUserName()+person.getPassword());
-			//userDao.create(user.getFirstName(), user.getLastName(),user.getPassword(),user.getUserName(),user.getEmailAddress());
 			Person p=userDao.checkLogin(person.getUserName(),person.getPassword());
 			if(p!=null)
 			{
@@ -86,16 +159,14 @@ public class RegisterController {
 				else if(p.getRoles().equals(Person.Roles.ADMIN))
 				{
 					List<Event> events=adminDao.fetchAllEvents();
-					System.out.println("The size of the eventlist is "+events.size());
-//					List<Goal> goals=adminDao.fetchAllGoals();
-//					System.out.println("The size of the goallist is "+goals.size());
+					
 					mv.setViewName("admintimeline");
-//					mv.addObject("goalList", goals);
 					mv.addObject("eventList", events);
 				}
 				else
 				{
-					mv.setViewName("error");
+					System.out.println("The username and password do not match");
+					mv.setViewName("admintimeline");
 				}
 				
 			}
@@ -103,7 +174,8 @@ public class RegisterController {
 			else
 			{
 
-				mv.setViewName("error");
+				System.err.println(">>>>>>>The username and password do not match >>>>>>>>>>");
+				mv.setViewName("home");
 				
 			}
 			return mv;
@@ -111,7 +183,7 @@ public class RegisterController {
 		catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());
 			e.printStackTrace();
-			mv.setViewName("error");
+			mv.setViewName("home");
 			return mv;
 		}
 
@@ -188,7 +260,7 @@ public class RegisterController {
 	protected @ResponseBody String deleteEvent(@RequestParam("eventId") String eventId, @RequestParam("userId") String userId)
 	{
 		try {
-		//	System.out.println("Hi I am in controller");
+		
 			UserDAO userDao = new UserDAO();
 			String[] evntId=eventId.split(":");
 			
@@ -196,21 +268,6 @@ public class RegisterController {
 			long userID=Long.parseLong(userId);
 			userDao.deleteEvent(eventNumber, userID);
 			return "declined";
-//			if(status.equalsIgnoreCase("alreadyAccepted"))
-//			{
-//				return "alreadyAccepted";
-//				
-//			}
-//			else if(status.equalsIgnoreCase("sendToAdvertiser"))
-//			{
-//				return "success";
-//			}
-//			 
-//			else
-//			{
-//				return null;
-//			}
-//			
 			
 		} catch (Exception e) {
 			System.out.println("Exception: " + e.getMessage());

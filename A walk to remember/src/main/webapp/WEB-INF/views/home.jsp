@@ -545,7 +545,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-lg-offset-2">
                         <div class="modal-body register">
-                        	<h2>REGISTER WITH US</h2>
+                        	<h2>JOIN US</h2>
                            		<ul class="nav nav-tabs">
   									<li class="active" ><a href="#userRegister" data-toggle="tab">User Registration</a></li>
  									<li><a href="#advertiserRegister" data-toggle="tab">Advertiser Registration</a></li>
@@ -561,46 +561,47 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="fname">First Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="firstName" />
+                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="firstName" required />
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="name">Last Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lastName" />
+                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lastName"  required/>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="email">Email:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="email" class="form-control" id="email" placeholder="Enter email address" name="emailAddress" />
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email address" name="emailAddress" required />
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="username">Username:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username" name="userName" />
+                                        <input type="text" class="form-control" id="userRegusername" placeholder="Enter username" name="userName" required/>
+                                    	<p id="userNameError"></p>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="password">Password:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" />
+                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required/>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="retype_password">Retype password:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="password" class="form-control" id="retypepassword" placeholder="Retype password">
+                                        <input type="password" class="form-control" id="retypepassword" placeholder="Retype password" required>
                                     </div>
                                 </div>
                                 
-                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <input type="submit" id="userRegSubmit" class="btn btn-primary" value="Submit" />
                                 <input type="reset" class="btn btn-primary" value="Reset" />
                                   
 <!--                             </form> -->
@@ -609,23 +610,28 @@
                                 
                                 <div id="login" class="tab-pane">
 							<br/>
+							
+<!-- 							 -->
                             <form:form action="login.htm" commandName="person" method="post" class="form-horizontal" role="form">
 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="uname">User Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="uname" placeholder="Enter user name" name="userName" />
+                                        <input type="text" class="form-control" id="loginuname" placeholder="Enter user name" name="userName" required/>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="password">Password:</label>
                                     <div class="col-sm-9">
-                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" />
+                                        <input type="password" class="form-control" id="loginpassword" placeholder="Enter password" name="password" required/>
                                     </div>
                                 </div>
                                 
-                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <div class="form-group">
+                                    <h3 id="credentialsStatus"></h3>
+                                </div>
+                                <input type="submit" id="loginSubmit" class="btn btn-primary" value="Submit" />
                                 <input type="reset" class="btn btn-primary" value="Reset" />
                                   
                                 </form:form>
@@ -638,14 +644,14 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="fname">First Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="firstName" />
+                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="firstName" required/>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="name">Last Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lastName" />
+                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lastName" required/>
                                     </div>
                                 </div>
                                 
@@ -653,26 +659,28 @@
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="username">Username:</label>
+                                    
                                     <div class="col-sm-9"> 
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username" name="userName" />
+                                        <input type="text" class="form-control" id="usernameAdvReg" placeholder="Enter username" name="userName" required/>
+                                    	<p id="advRegUserName"></p>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="password">Password:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" />
+                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required/>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="retype_password">Retype password:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="password" class="form-control" id="retypepassword" placeholder="Retype password">
+                                        <input type="password" class="form-control" id="retypepassword" placeholder="Retype password" required />
                                     </div>
                                 </div>
                                 
-                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <input type="submit" id="advRegistrationSubmit" class="btn btn-primary" value="Submit" />
                                 <input type="reset" class="btn btn-primary" value="Reset" />
                                   
 <!--                             </form> -->
@@ -687,39 +695,40 @@
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="fname">First Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="firstName" />
+                                        <input type="text" class="form-control" id="fname" placeholder="Enter first name" name="firstName" required/>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="name">Last Name:</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lastName" />
+                                        <input type="text" class="form-control" id="lname" placeholder="Enter last name" name="lastName" required/>
                                     </div>
                                 </div>
    
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="username">Username:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="text" class="form-control" id="username" placeholder="Enter username" name="userName" />
+                                        <input type="text" class="form-control" id="usernameAdminReg" placeholder="Enter username" name="userName" required/>
+                                    	<p id="adminRegUserName"></p>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="password">Password:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" />
+                                        <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required/>
                                     </div>
                                 </div>
                                 
                                 <div class="form-group">
                                     <label class="control-label col-sm-3" for="retype_password">Retype password:</label>
                                     <div class="col-sm-9"> 
-                                        <input type="password" class="form-control" id="retypepassword" placeholder="Retype password">
+                                        <input type="password" class="form-control" id="retypepassword" placeholder="Retype password"  required/>
                                     </div>
                                 </div>
                                 
-                                <input type="submit" class="btn btn-primary" value="Submit" />
+                                <input type="submit" id="adminRegistrationSubmit" class="btn btn-primary" value="Submit" />
                                 <input type="reset" class="btn btn-primary" value="Reset" />
 
                                 </form:form>
@@ -742,6 +751,7 @@
         </div>
 
     <!-- jQuery -->
+
     <script src="resources/js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
@@ -758,7 +768,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="resources/js/agency.js"></script>
-
+	<script src="resources/js/customJquery.js"></script>
 </body>
 
 </html>
