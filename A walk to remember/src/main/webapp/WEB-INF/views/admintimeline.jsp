@@ -102,14 +102,14 @@
                   </ul>
                 </li>
                 
-                </li>
-                 <li><a><i class="fa fa-bar-chart-o"></i> LogOut <span class="fa fa-chevron-down"></span></a>
+               <li><a><i class="fa fa-bar-chart-o"></i> LogOut <span class="fa fa-chevron-down"></span></a>
                   <ul class="nav child_menu" style="display: none">
                     <li> <a href="logout.htm"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </li>
                     
                   </ul>
                 </li>
+          
                 
                
               </ul>

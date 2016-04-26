@@ -27,7 +27,7 @@ public class Memory {
 	private String memoryDescription;
 	
 	@Column(name="memoryDate")
-	private int memoryDate;
+	private String memoryDate;
 	
 //	@ManyToOne(fetch=FetchType.EAGER, cascade=CascadeType.ALL)
 //	private User user;
@@ -37,7 +37,7 @@ public class Memory {
 	private User user;
 
 
-	public void setMemoryDate(int memoryDate) {
+	public void setMemoryDate(String memoryDate) {
 		this.memoryDate = memoryDate;
 	}
 
@@ -47,7 +47,7 @@ public class Memory {
 	
 	
 
-	public int getMemoryDate() {
+	public String getMemoryDate() {
 		return memoryDate;
 	}
 	

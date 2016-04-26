@@ -111,6 +111,14 @@
                    
                   </ul>
                 </li>
+                
+                     <li><a><i class="fa fa-bar-chart-o"></i> LogOut <span class="fa fa-chevron-down"></span></a>
+                  <ul class="nav child_menu" style="display: none">
+                    <li> <a href="logout.htm"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    </li>
+                    
+                  </ul>
+                </li>
               </ul>
             </div>
            
@@ -136,7 +144,7 @@
                   <span class=" fa fa-angle-down"></span>
                 </a>
                 
-                <a href="logout.htm"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+<!--                 <a href="logout.htm"><i class="fa fa-sign-out pull-right"></i> Log Out</a> -->
                 <ul class="dropdown-menu dropdown-usermenu pull-right">
                   <li><a href="javascript:;"> My timeline</a>
                   </li>
@@ -951,7 +959,7 @@
                  
                  <div class="col-sm-9">
                      <label for="memoryDate">Memory Date:</label>
- 					 <input type="text" class="form-control" name="memoryDate" id="memoryDate" />
+ 					 <input type="date" class="form-control" name="memoryDate" id="memoryDate" />
                  </div>
                  <div class="col-sm-9">
                  <input type="hidden" name="userName" value ="${sessionScope.personObj.userName}">

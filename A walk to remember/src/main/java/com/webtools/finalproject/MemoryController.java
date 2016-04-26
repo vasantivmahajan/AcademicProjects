@@ -64,4 +64,13 @@ public class MemoryController {
 		return "postMemory";
 	}
 
+	@RequestMapping(value="/post.htm", method=RequestMethod.GET)
+	public String memoryGet(@ModelAttribute("memory") Memory memory)
+	{
+		return "home";
+		
+	}
+	
+	
+
 }

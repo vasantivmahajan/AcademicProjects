@@ -45,14 +45,13 @@ public class AdminController {
 		try {
 		   
 			AdminDAO adminDao=new AdminDAO();
-			//HttpSession session=request.getSession();
+			
 			List<Goal> goals=adminDao.fetchAllGoals();
 			System.out.println("The size of the goallist is "+goals.size());
 			mv.setViewName("admintimeline");
 			mv.addObject("goalList", goals);
 			String flag="goalsFetched";
 			mv.addObject("flag", flag);
-			//session.setAttribute("goalList",goals);
 			return mv;
 		    
 		} 
@@ -184,4 +183,20 @@ public class AdminController {
 			return null;
 		}
 	}
+	
+	@RequestMapping(value="/viewMatchingEvents.htm",method = RequestMethod.GET)
+	protected String viewMatchingEvents()
+	{
+		return "home";
+	}
+	
+	@RequestMapping(value="/addToUsersEventList.htm",method = RequestMethod.GET)
+	protected String addEventToUsersList()
+	{
+		return "home";
+	}
 }
+
+
+
+	

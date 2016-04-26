@@ -19,7 +19,7 @@ public class MemoryDAO extends DAO {
 
    
     
-    public User create(String memoryDescription, int date, User user)
+    public User create(String memoryDescription, String date, User user)
              {
     	
         try {

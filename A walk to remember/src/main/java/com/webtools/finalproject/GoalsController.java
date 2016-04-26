@@ -57,9 +57,9 @@ public class GoalsController {
 
 	}
 	
-	@RequestMapping(value="/postMemory.htm")
-	public String initializeForm(@ModelAttribute("memory") Memory memory) {
-		return "postMemory";
+	@RequestMapping(value="/setGoal.htm")
+	public String initializeForm(@ModelAttribute("goal") Goal goal) {
+		return "home";
 	}
 
 }
