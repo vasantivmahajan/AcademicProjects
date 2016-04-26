@@ -11,6 +11,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.webtools.finalproject.dao.AdminDAO;
@@ -69,8 +71,9 @@ public class RegisterController {
 				sessionObj.setAttribute("personObj" , p);
 				if(p.getRoles().equals(Person.Roles.USER))
 				{
-					
+					User u=userDao.getUser(p.getPersonID());
 					mv.setViewName("timeline");
+					sessionObj.setAttribute("userObj" ,u);
 				}
 				
 				else if(p.getRoles().equals(Person.Roles.ADVERTISER))
@@ -114,10 +117,66 @@ public class RegisterController {
 		
 	}
 	
+	@RequestMapping(value="/fetchAllEvents.htm",method = RequestMethod.GET)
+	protected ModelAndView fetchAllEvents(HttpServletRequest request)
+	{
+		try {
+			UserDAO userDao = new UserDAO();
+			HttpSession session=request.getSession();
+			User user=(User) session.getAttribute("userObj");
+			List<Event> eventList=userDao.fetchUserEventList(user);
+			String flag="eventListReceived";
+			ModelAndView mv=new ModelAndView();
+			mv.addObject("eventlist", eventList);
+			mv.addObject("flag", flag);
+			mv.setViewName("timeline");
+			return mv;
+			
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			return null;
+		}
+
+	}
+	
+
+	@RequestMapping(value = "/acceptEvent.htm", method = RequestMethod.POST)
+	protected @ResponseBody String acceptEvent(@RequestParam("eventId") String eventId)
+	{
+		try {
+		//	System.out.println("Hi I am in controller");
+			UserDAO userDao = new UserDAO();
+			String[] evntId=eventId.split(":");
+			
+			int eventNumber=Integer.parseInt(evntId[1]);
+			String status=userDao.sendResponseToAdvertiser(eventNumber);
+			if(status.equalsIgnoreCase("alreadyAccepted"))
+			{
+				return "alreadyAccepted";
+				
+			}
+			else if(status.equalsIgnoreCase("sendToAdvertiser"))
+			{
+				return "success";
+			}
+			 
+			else
+			{
+				return null;
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("Exception: " + e.getMessage());
+			return null;
+		}
+
+		
+	}
 	
 	
 	@RequestMapping(value="/login.htm",method = RequestMethod.GET)
-	public String initializeLoginForm(@ModelAttribute("person") Person person) {
+	protected String initializeLoginForm(@ModelAttribute("person") Person person) {
 
 		return "home";
 	}

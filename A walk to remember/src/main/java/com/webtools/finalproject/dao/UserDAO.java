@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.Query;
 
 import com.webtools.finalproject.pojo.Advertiser;
+import com.webtools.finalproject.pojo.Event;
 import com.webtools.finalproject.pojo.Person;
 import com.webtools.finalproject.pojo.User;
 import com.webtools.finalproject.pojo.Person.Roles;
@@ -102,6 +103,87 @@ catch (Exception e) {
             return null;
         }
         
+    }
+    
+    public User getUser(long personId)
+    {
+    	try {
+            begin();
+            
+            Query q = getSession().createQuery("from User where personID =:personId");
+            q.setParameter("personId",personId);
+            
+            User u=(User)q.uniqueResult();
+            commit();
+        
+           return u;
+            
+        } 
+        catch (Exception e) {
+            rollback();
+            
+            e.printStackTrace();
+            return null;
+        }
+        
+    	
+    }
+    
+    public List<Event> fetchUserEventList(User user)
+    {
+    	try {
+            begin();
+            
+            Query q = getSession().createQuery("Select eventList from User as u where u.personID=:personId");
+            q.setParameter("personId",user.getPersonID());
+            
+            List<Event> eventList=q.list();
+            commit();
+        
+           return eventList;
+            
+        } 
+        catch (Exception e) {
+            rollback();
+            
+            e.printStackTrace();
+            return null;
+        }
+    	
+    }
+    
+    public String sendResponseToAdvertiser(int value)
+    {
+    	try {
+    		
+            begin();
+            Query q = getSession().createQuery("from Event where eventId=:value");
+            q.setParameter("value",value);
+            Event event=(Event)q.uniqueResult();
+            System.out.println("The status is "+event.getUserStatus());
+            if(event.getUserStatus().equalsIgnoreCase("No Response"))
+            {
+            	event.setUserStatus("Accepted");
+                getSession().merge(event);
+                commit(); 
+                return "sendToAdvertiser";
+            }
+            else
+            {
+            	return "alreadyAccepted";
+            	
+            }
+            
+             
+        } 
+        catch (Exception e) {
+            rollback();
+            
+            e.printStackTrace();
+            return null;
+        }
+    	
+    	
     }
 
 

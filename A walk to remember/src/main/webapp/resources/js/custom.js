@@ -98,10 +98,10 @@ $(window).resize(function () {
     $(".right_col").css("min-height", $(window).height());
 });
 
-// Tooltip
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip();
-});
+//// Tooltip
+//$(function () {
+//    $('[data-toggle="tooltip"]').tooltip();
+//});
 
 // Progressbar
 if ($(".progress .progress-bar")[0]) {
@@ -229,10 +229,10 @@ var __slice = [].slice;
         }
     });
 })(window.jQuery, window);
-
-$(function () {
-    return $(".starrr").starrr();
-});
+//
+//$(function () {
+//    return $(".starrr").starrr();
+//});
 
 $(document).ready(function () {
 

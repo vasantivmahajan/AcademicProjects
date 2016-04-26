@@ -16,23 +16,22 @@
   <!-- Bootstrap core CSS -->
  <link href='http://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
   <link href="resources/css/bootstrap.min.css" rel="stylesheet">
-  <link href="resources/css/formcss.css" rel="stylesheet">
-  <link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,400italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="resources/css/main.css">
+  	<link href="resources/css/formcss.css" rel="stylesheet">
+  	<link href='http://fonts.googleapis.com/css?family=Droid+Serif|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,700,400italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="resources/css/main.css">
 	<link rel="stylesheet" href="resources/css/reset.css"> <!-- CSS reset -->
-	
 	<script src="resources/js/modernizr.js"></script> <!-- Modernizr -->
 	<link rel="stylesheet" href="resources/css/reset.css"> <!-- CSS reset -->
 	<link rel="stylesheet" href="resources/css/style.css"> <!-- Resource style -->
 	<script src="resources/js/modernizr.js"></script> <!-- Modernizr -->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="resources/js/main.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <link href="resources/fonts/css/font-awesome.min.css" rel="stylesheet">
-  <link href="resources/css/animate.min.css" rel="stylesheet">
+  	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<script src="resources/js/main.js"></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  	<link href="resources/fonts/css/font-awesome.min.css" rel="stylesheet">
+  	<link href="resources/css/animate.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="resources/css/normalize.css">
     <link rel='stylesheet prefetch' href='http://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css'>
    
@@ -158,7 +157,6 @@
  <div id="contentWindow" class="right_col" role="main">
 
 	   <c:choose>
-	   
 
 	   	<c:when test="${flag=='goalsFetched'}">
 	   	
@@ -249,6 +247,7 @@
                                       	<input type="hidden" name="goalUser" value="${goal.user.lastName}" />
                                       	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" /> 
                                       	<input type="hidden" name="goalDate" value="${goal.goalDate}"/>
+                                      	<input type="hidden" name="goalLoggedTime" value="${goal.loggedTime}" />
                                       	<input type="submit" id="viewMatchingEvents" class="btn" value="View matching events" /> 
                                 	</form:form>
                                 </div>
@@ -297,24 +296,42 @@
                                      	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" />
                                      	<input type="hidden" name="goalUser" value="${goal.user.lastName}" />
                                      	<input type="hidden" name="goalDate" value="${goal.goalDate}"/>
+                                     	<input type="hidden" name="goalLoggedTime" value="${goal.loggedTime}" />
                                      	<input type="submit" id="viewMatchingEvents" type="button" class="btn" value="View matching events" />
                                 	</form:form>
                                 </div>
                                
+                        
                                	
-                               	 <c:if test="${goal.user.lastName eq goalUser && goal.goalDate eq goalDate}">
+                               	 <c:if test="${goal.user.lastName eq goalUser && goal.goalDate eq goalDate && goal.loggedTime eq goalLoggedTime}">
                             	<br />
                                	   <div class="pricing-header">
                                   
                                	 <ul>
+                               	 
                                	 <li class="pricing-title" > Most suitable events </li>
-                               	 <c:forEach var="i" items="${matchingEventList}">
-                                		<form action="addToUsersEventList.htm" method='post'>
-                                			<input type="hidden" name="userLastName" value="${goal.user.lastName}" />
-                     					   <a href="#" class="btn btn-custom">${i.eventDescription} <i class="fa fa-thumb-tack" aria-hidden="true"></i> </a>
-                     					</form>
+                               	 
+                               	 <c:choose>
+                               	 	<c:when test="${flag2 eq 'noResults'}">
+                               	 		<a href="#" class="btn btn-custom">Sorry there are no matching events <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+                               	 	</c:when>
+                               	 	
+                               	 	<c:otherwise>
+                               	 	    	 <c:forEach var="i" items="${matchingEventList}">
+                               	 	<a href="#" class="btn btn-custom">${i.eventDescription} <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+                                		<form:form action="addToUsersEventList.htm" commandName="goal" method="post" class="form-horizontal" role="form">
+                                		
+                                		   <input type="hidden" name="userLastName" value="${goal.user.lastName}" />
+                                		   <input type="hidden" name="eventDescription" value="${i.eventDescription}" />
+                     					   <input type="hidden" name="goalDate" value="${goal.goalDate}"/>
+                     					   	<input type="hidden" name="goalLoggedTime" value="${goal.loggedTime}" />
+                     					   <input type="submit" name="Pin it" value ="Pin it!">
+                     					</form:form>
                                 	
                  					 </c:forEach>
+                               	 	</c:otherwise>
+                               	 </c:choose>
+                           
           						 </ul>	
           						 
           						 </div>

@@ -1,6 +1,9 @@
 package com.webtools.finalproject.dao;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -103,7 +106,7 @@ public class AdminDAO extends DAO {
     	try {
 			fullTextSession.createIndexer().startAndWait();
 		} catch (InterruptedException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}
     	
@@ -151,6 +154,71 @@ public class AdminDAO extends DAO {
     	
     }
 
+    
+    public Event getEvent(String eventDescription)
+    {
+    	try {
+            begin();
+            Query q = getSession().createQuery("from Event where eventDescription =:eventDescription");
+            q.setString("eventDescription", eventDescription);
+            Event event=(Event)q.uniqueResult();
+            commit();
+            return event;
+        } 
+        catch (Exception e) {
+            rollback();
+            e.printStackTrace();
+            return null;
+        }
+        
+    	
+    }
+    
+    public void addEventToUserAndUserToEvent(Event event,User user)
+    {
+    	try {
+            begin();
+            List<Event> eventList=user.getEventList();
+    		Set<User> userList=event.getUserSet();
+        	if(eventList!=null)
+    		{
+    			
+    			eventList=user.getEventList();
+    		}
+    		else
+    		{
+    			eventList=new ArrayList<Event>();
+    			
+    		}
+    		
+    		eventList.add(event);
+    		
+    		if(userList!=null)
+    		{
+    			userList=event.getUserSet();
+    			
+    		}
+    		
+    		else
+    		{
+    			userList=new HashSet<User>();
+    		}
+    		userList.add(user);
+    		getSession().merge(event);
+    	    commit();
+         
+    } 
+    catch (Exception e) {
+        rollback();
+        
+        e.printStackTrace();
+    }
+    
+    	
+    	
+		
+    	
+    }
 	private void createQuery() {
 		// TODO Auto-generated method stub
 		

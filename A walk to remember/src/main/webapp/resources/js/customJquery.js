@@ -25,37 +25,47 @@ $(document).ready(function(){
     	$(".memoriesTimeline").fadeOut(1000);
     });
     
-//    $("#viewMatchingEvents").click(function()
-//    {
-//    	alert("hi");
-//    	var data = {}
-//		data["goalDescription"] = $("#goalDescription").html();
-//		alert(data);
-//		$.ajax({
-//			
-//			type : "POST",
-//			contentType : "application/json",
-//			url : "fetchResults.htm",
-//			data : JSON.stringify(data),
-//			dataType : 'json',
-//			timeout : 100000,
-//			async: false,
-//			success : function(data) {
-//				alert("success");
-//				console.log("SUCCESS: ", data);
-//				display(data);
-//			},
-//			error : function(e) {
-//				alert("error"+e.status);
-//				console.log("ERROR: ", e);
-//				
-//			},
-//			done : function(e) {
-//				console.log("DONE");
-//			}
-//    	
-//		});
-//    
-//    });
-   
+    
+    $("#acceptEvent").click(function(){
+    	
+    	var data=$(".eventId");
+    	console.log(data);
+    	
+    	$.ajax({
+			
+			type:"POST",
+			url:"acceptEvent.htm",
+			data: {eventId:$(".eventId").html()},
+			success : function(result){
+//				alert(result);
+				if(result=="success")
+					{
+//						alert($(".successMessage").attr("class"));
+						$(".successMessage").text("You have enrolled for the event");
+						$("#acceptEvent").css("color","black");
+						$("#acceptEvent").attr("disabled", "disabled");
+						$("#deleteEvent").attr("disabled", "disabled")
+						
+						
+					}
+				
+				else if(result=="alreadyAccepted")
+					{
+					$(".successMessage").text("You have already accepted the event");
+					$("#acceptEvent").remove();
+					}
+				
+			},
+			error: function(jqXHR){
+				alert("Problem occured while completed adventure process" + jqXHR.status);
+			}
+			
+		});
+    	
+    	
+    	
+    	
+    	
+    });
+
 });

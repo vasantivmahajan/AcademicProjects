@@ -29,6 +29,12 @@
   <script src="resources/js/jquery.min.js"></script>
   <script src="resources/js/nprogress.js"></script>
 
+<style>
+	.successMessage
+	{
+	color:red;
+	}
+</style>
 
 </head>
 <body class="nav-md">
@@ -95,8 +101,10 @@
                 </li>
                   
                 <li><a><i class="fa fa-bar-chart-o"></i> Events <span class="fa fa-chevron-down"></span></a>
+                  
                   <ul class="nav child_menu" style="display: none">
-                    <li><a href="#">View all events</a>
+                  
+                    <li><a href="fetchAllEvents.htm">View all events</a>
                     </li>
                     <li><a href="#">Manage events</a>
                     </li>
@@ -154,55 +162,20 @@
 
         <!-- top tiles -->
         <div class="row tile_count">
-          <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
+        
+        <c:forEach var="event" items="${sessionScope.userObj.eventList}">
+         
+          <div class="animated flipInY col-md-4 col-sm-4 col-xs-4 tile_stats_count">
             <div class="left"></div>
             <div class="right">
-              <span class="count_top"><i class="fa fa-user"></i> Total Users</span>
-              <div class="count">2500</div>
-              <span class="count_bottom"><i class="green">4% </i> From last Week</span>
+              <span class="count_top"><i class="fa fa-user"></i> ${event.eventDate}</span>
+              <div class="count">${event.eventTitle}</div>
+              <span class="count_bottom"><i class="green">${event.eventTiming}</i> </span>
             </div>
           </div>
-          <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-              <span class="count_top"><i class="fa fa-clock-o"></i> Average Time</span>
-              <div class="count">123.50</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>3% </i> From last Week</span>
-            </div>
-          </div>
-          <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-              <span class="count_top"><i class="fa fa-user"></i> Total Males</span>
-              <div class="count green">2,500</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-          </div>
-          <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-              <span class="count_top"><i class="fa fa-user"></i> Total Females</span>
-              <div class="count">4,567</div>
-              <span class="count_bottom"><i class="red"><i class="fa fa-sort-desc"></i>12% </i> From last Week</span>
-            </div>
-          </div>
-          <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-              <span class="count_top"><i class="fa fa-user"></i> Total Collections</span>
-              <div class="count">2,315</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-          </div>
-          <div class="animated flipInY col-md-2 col-sm-4 col-xs-4 tile_stats_count">
-            <div class="left"></div>
-            <div class="right">
-              <span class="count_top"><i class="fa fa-user"></i> Total Connections</span>
-              <div class="count">7,325</div>
-              <span class="count_bottom"><i class="green"><i class="fa fa-sort-asc"></i>34% </i> From last Week</span>
-            </div>
-          </div>
-
+        </c:forEach>
+       
+         
         </div>
         <!-- /top tiles -->
 	<!-- Start of timeline -->
@@ -215,13 +188,65 @@
   
      <ul class="timeline memoryNumber">
      <c:choose>
+     
+     <c:when test="${flag eq 'eventListReceived'}">
+   	<section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h3 class="section-heading">Events to be held</h3>
+                    <h2 class="section-subheading text-muted">Our application suggests you to attend these events to bring you one step closer to your goals</h2>
+                </div>
+            </div>
+           
+            
+       <div class="row events">
+		<c:forEach var="e" items="${eventlist}">
+
+          <div class="col-md-4 col-sm-4 col-xs-12">
+            <div class="x_panel tile fixed_height_320">
+              <div class="x_title">
+                <h2>${e.eventTitle}</h2>
+                <ul class="nav navbar-right panel_toolbox">
+                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                  </li>
+                  
+
+                </ul>
+                <div class="clearfix"></div>
+              </div>
+              <div class="x_content">
+              
+              <p class="text-muted successMessage"></p> 
+              <p class="text-muted eventId">Event id:${e.eventId}</p> 
+              <p class="text-muted">Event description: ${e.eventDescription} </p> 
+              <p class="text-muted">Event date: ${e.eventDate} </p>
+              <p class="text-muted">Event timings: ${e.eventTiming} </p> 
+              
+              <a href="#" id="acceptEvent"><i class="fa fa-thumbs-o-up fa-2x" aria-hidden="true"></i></a> 
+              <a href="#" id="deleteEvent"><i class="fa fa-thumbs-o-down fa-2x" aria-hidden="true"></i> </a>  <br /> 
+              <p class="text-muted">Rate this event: </p> 
+              <i class="fa fa-star-o fa-lg" aria-hidden="true" ></i> <i class="fa fa-star-o fa-lg" aria-hidden="true"></i> 
+              <i class="fa fa-star-o fa-lg" aria-hidden="true"></i> <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+              <i class="fa fa-star-o fa-lg" aria-hidden="true"></i>
+                       
+              </div>
+            </div>
+          </div>
+
+          </c:forEach>
+        </div>
+	 
+           </div>
+           </section>
+   		</c:when> 
+  
   		<c:when test="${flag == 'CreatedNew'}">
   			<c:forEach varStatus="i" var="memory" items="${memories}"> 
    
    <c:choose>
    
    
-  
     	<c:when test="${(i.count mod 2) == 0}">
     	
         	<li>
@@ -301,7 +326,9 @@
       			</div>
   		  </li>         
         	
-   		</c:when>    
+   		</c:when>  
+   		
+   		
     
     	<c:otherwise>
     	
@@ -1002,87 +1029,17 @@
   <!-- daterangepicker -->
 <!--   <script type="text/javascript" src="resources/js/moment/moment.min.js"></script> -->
   <script type="text/javascript" src="resources/js/datepicker/daterangepicker.js"></script>
-     <script src="resources/js/customJquery.js"></script>
+    <script src="resources/js/customJquery.js"></script> 
   <script src="resources/js/custom.js"></script>
 <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
-  <!-- datepicker -->
- <script type="text/javascript"> 
-    $(document).ready(function() {
+  
+<!--   <script> -->
+//     NProgress.done();
+<!--   </script> -->
+<!--   <!-- /datepicker --> -->
 
-      var cb = function(start, end, label) {
-        console.log(start.toISOString(), end.toISOString(), label);
-        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
-        //alert("Callback has fired: [" + start.format('MMMM D, YYYY') + " to " + end.format('MMMM D, YYYY') + ", label = " + label + "]");
-      }
 
-      var optionSet1 = {
-        startDate: moment().subtract(29, 'days'),
-        endDate: moment(),
-        minDate: '01/01/2012',
-        maxDate: '12/31/2015',
-        dateLimit: {
-          days: 60
-        },
-        showDropdowns: true,
-        showWeekNumbers: true,
-        timePicker: false,
-        timePickerIncrement: 1,
-        timePicker12Hour: true,
-        ranges: {
-          'Today': [moment(), moment()],
-          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
-          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
-          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
-          'This Month': [moment().startOf('month'), moment().endOf('month')],
-          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
-        },
-        opens: 'left',
-        buttonClasses: ['btn btn-default'],
-        applyClass: 'btn-small btn-primary',
-        cancelClass: 'btn-small',
-        format: 'MM/DD/YYYY',
-        separator: ' to ',
-        locale: {
-          applyLabel: 'Submit',
-          cancelLabel: 'Clear',
-          fromLabel: 'From',
-          toLabel: 'To',
-          customRangeLabel: 'Custom',
-          daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
-          monthNames: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-          firstDay: 1
-        }
-      };
-      $('#reportrange span').html(moment().subtract(29, 'days').format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
-      $('#reportrange').daterangepicker(optionSet1, cb);
-      $('#reportrange').on('show.daterangepicker', function() {
-        console.log("show event fired");
-      });
-      $('#reportrange').on('hide.daterangepicker', function() {
-        console.log("hide event fired");
-      });
-      $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
-        console.log("apply event fired, start/end dates are " + picker.startDate.format('MMMM D, YYYY') + " to " + picker.endDate.format('MMMM D, YYYY'));
-      });
-      $('#reportrange').on('cancel.daterangepicker', function(ev, picker) {
-        console.log("cancel event fired");
-      });
-      $('#options1').click(function() {
-        $('#reportrange').data('daterangepicker').setOptions(optionSet1, cb);
-      });
-      $('#options2').click(function() {
-        $('#reportrange').data('daterangepicker').setOptions(optionSet2, cb);
-      });
-      $('#destroy').click(function() {
-        $('#reportrange').data('daterangepicker').remove();
-      });
-    });
-   </script> 
-  <script>
-    NProgress.done();
-  </script>
-  <!-- /datepicker -->
   <!-- /footer content -->
 </body>
 

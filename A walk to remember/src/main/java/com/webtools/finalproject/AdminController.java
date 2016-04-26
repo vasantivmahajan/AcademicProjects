@@ -1,6 +1,7 @@
 package com.webtools.finalproject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
@@ -127,8 +128,14 @@ public class AdminController {
 			String goalDescription=request.getParameter("goalDescription");
 			String goalUser=request.getParameter("goalUser");
 			String goalDate=request.getParameter("goalDate");
+			String goalLoggedTime=request.getParameter("goalLoggedTime");
 			System.out.println("The goal user is "+goalUser);
 			List<Event> eventList=adminDao.fetchAllGoalsUsingSearchString(goalDescription);
+			if(eventList.size()==0)
+			{
+				String flag2="noResults";
+				mv.addObject("flag2", flag2);
+			}
 			//System.out.println("The size of the eventlist is "+eventList.size());
 			List<Goal> goals=adminDao.fetchAllGoals();
 			mv.addObject("goalList", goals);
@@ -137,6 +144,7 @@ public class AdminController {
 			mv.addObject("flag", flag);
 			mv.addObject("goalUser", goalUser);
 			mv.addObject("goalDate", goalDate);
+			mv.addObject("goalLoggedTime", goalLoggedTime);
 //			String flag2="matchedListObtained";
 //			mv.addObject("flag2", flag2);
 			mv.setViewName("admintimeline");
@@ -153,17 +161,27 @@ public class AdminController {
 	
 	
 	@RequestMapping(value="/addToUsersEventList.htm",method = RequestMethod.POST)
-	protected void addEventToUsersList(HttpServletRequest request)
+	protected String addEventToUsersList(HttpServletRequest request)
 	{
 		try {
 			   
 			AdminDAO adminDao=new AdminDAO();
-			User user=adminDao.getUser(request.getParameter("userLastName"));
-		    
+			String userLastName=request.getParameter("userLastName");
+			String eventDescription=request.getParameter("eventDescription");
+			User user=adminDao.getUser(userLastName);
+			Event event=adminDao.getEvent(eventDescription);
+		    //System.out.println("The fetched event descr is "+ event.getEventDescription());
+			
+			adminDao.addEventToUserAndUserToEvent(event,user);
+			System.out.println("Users event list size" +user.getEventList().size());
+			System.out.println("Events user list size" +event.getUserSet().size());
+			
+			
+			return "admintimeline";
 		} 
 		catch (Exception e) {
 			e.printStackTrace();
-
+			return null;
 		}
 	}
 }

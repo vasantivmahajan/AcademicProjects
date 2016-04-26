@@ -12,6 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
@@ -39,9 +40,11 @@ public class User extends Person{
 	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL, mappedBy="user")
 	private List<Goal> goalList;
 	
-	@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL, mappedBy="user")
+	//@OneToMany (fetch=FetchType.EAGER,cascade=CascadeType.ALL)
+	@ManyToMany(cascade=CascadeType.ALL, mappedBy="userSet") 
 	private List<Event> eventList;
 	
+	 
 	public List<Event> getEventList() {
 		return eventList;
 	}
@@ -52,6 +55,7 @@ public class User extends Person{
 
 	public User()
 	{}
+	
 	
 	public List<Goal> getGoalList() {
 		return goalList;

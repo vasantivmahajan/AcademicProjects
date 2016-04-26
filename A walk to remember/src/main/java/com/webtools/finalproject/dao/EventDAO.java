@@ -34,6 +34,7 @@ public class EventDAO extends DAO {
             event.setEventTiming(eventTimings);
             event.setEventTitle(eventTitle);
             event.setPhoneNumber(phoneNumber);
+            event.setUserStatus("No Response");
             SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
             String date = formatter.format(eventDate);
             event.setEventDate(date);

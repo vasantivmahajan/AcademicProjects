@@ -11,9 +11,12 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Field;
 import org.hibernate.search.annotations.Index;
@@ -55,20 +58,37 @@ public class Event {
 	@JoinColumn(name = "personId")
 	private Advertiser advertiser;
 	
+	@ColumnDefault("'No Response'")
+	@Column(name="userStatus")
+	private String userStatus;
+	
 //	@ManyToOne(cascade=CascadeType.ALL, fetch=FetchType.EAGER)
 //	@JoinColumn(name = "personId")
-//	private Set<User> userSet;
-//	
-//	
-//
-//	public Set<User> getUserSet() {
-//		return userSet;
-//	}
-//
-//
-//	public void setUserSet(Set<User> userSet) {
-//		this.userSet = userSet;
-//	}
+
+	public String getUserStatus() {
+		return userStatus;
+	}
+
+
+	public void setUserStatus(String userStatus) {
+		this.userStatus = userStatus;
+	}
+
+
+	@ManyToMany(cascade=CascadeType.ALL)  
+    @JoinTable(name="user_events", joinColumns=@JoinColumn(name="event_id"), inverseJoinColumns=@JoinColumn(name="user_id"))  
+	private Set<User> userSet;
+	
+	
+	
+	public Set<User> getUserSet() {
+		return userSet;
+	}
+
+
+	public void setUserSet(Set<User> userSet) {
+		this.userSet = userSet;
+	}
 
 
 	public String getEventDate() {
