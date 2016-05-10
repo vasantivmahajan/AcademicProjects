@@ -234,15 +234,8 @@
                                        
                                     </ul>
                                     
-<!--                                     <button type="button" id="viewMatchingEvents" class="btn" >View matching events</button> -->
-                                    
-<!--                                     <ul> -->
-<%--                   <c:forEach var="i" items="${matchingEventList}"> --%>
-                                	
-<%--                       <li> ${i.eventDescription} </li> --%>
-                                	
-<%--                   </c:forEach> --%>
-           </ul>
+
+           					</ul>
                                     <form:form action="viewMatchingEvents.htm" commandName="goal" method="post" class="form-horizontal" role="form">
                                       	<input type="hidden" name="goalUser" value="${goal.user.lastName}" />
                                       	<input type="hidden" name="goalDescription" value="${goal.goalDescription}" /> 
@@ -314,6 +307,10 @@
                                	 <c:choose>
                                	 	<c:when test="${flag2 eq 'noResults'}">
                                	 		<a href="#" class="btn btn-custom">Sorry there are no matching events <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
+                               	 	</c:when>
+                               	 	
+                               	 	<c:when test="${flag2 eq 'alreadyAdded'}">
+                               	 		<a href="#" class="btn btn-custom">Event has already been mapped <i class="fa fa-thumb-tack" aria-hidden="true"></i></a>
                                	 	</c:when>
                                	 	
                                	 	<c:otherwise>

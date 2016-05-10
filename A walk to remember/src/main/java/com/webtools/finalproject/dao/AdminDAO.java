@@ -99,7 +99,7 @@ public class AdminDAO extends DAO {
     
     public List fetchAllGoalsUsingSearchString(String goalDescription)
     {
-    	System.out.println("Hi I have reached the DAO");
+    	//System.out.println("Hi I have reached the DAO");
     	Session session = getSession();
     	FullTextSession fullTextSession = Search.getFullTextSession(session);
     	

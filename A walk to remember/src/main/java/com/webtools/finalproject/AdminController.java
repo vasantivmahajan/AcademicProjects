@@ -128,14 +128,34 @@ public class AdminController {
 			String goalUser=request.getParameter("goalUser");
 			String goalDate=request.getParameter("goalDate");
 			String goalLoggedTime=request.getParameter("goalLoggedTime");
-			System.out.println("The goal user is "+goalUser);
+			String flag2 = null;
 			List<Event> eventList=adminDao.fetchAllGoalsUsingSearchString(goalDescription);
 			if(eventList.size()==0)
 			{
-				String flag2="noResults";
-				mv.addObject("flag2", flag2);
+				flag2="noResults";
+				
 			}
-			//System.out.println("The size of the eventlist is "+eventList.size());
+			
+			else
+			{
+				User user=adminDao.getUser(goalUser);
+				for(int i=0;i<user.getEventList().size();i++)
+				{
+					for(int j=0;j<eventList.size();j++)
+					{
+						if(user.getEventList().get(i).getEventDescription().equalsIgnoreCase((eventList.get(j)).getEventDescription()))
+						{
+							 flag2="alreadyAdded";
+						}
+						
+						
+					}
+					
+					
+				}
+			}
+			
+			
 			List<Goal> goals=adminDao.fetchAllGoals();
 			mv.addObject("goalList", goals);
 			mv.addObject("matchingEventList", eventList);
@@ -144,8 +164,7 @@ public class AdminController {
 			mv.addObject("goalUser", goalUser);
 			mv.addObject("goalDate", goalDate);
 			mv.addObject("goalLoggedTime", goalLoggedTime);
-//			String flag2="matchedListObtained";
-//			mv.addObject("flag2", flag2);
+			mv.addObject("flag2",flag2);
 			mv.setViewName("admintimeline");
 			return mv;
 		    
@@ -172,8 +191,8 @@ public class AdminController {
 		    //System.out.println("The fetched event descr is "+ event.getEventDescription());
 			
 			adminDao.addEventToUserAndUserToEvent(event,user);
-			System.out.println("Users event list size" +user.getEventList().size());
-			System.out.println("Events user list size" +event.getUserSet().size());
+//			System.out.println("Users event list size" +user.getEventList().size());
+//			System.out.println("Events user list size" +event.getUserSet().size());
 			
 			
 			return "admintimeline";
